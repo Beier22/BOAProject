@@ -4,7 +4,9 @@ using System.Text;
 
 namespace BOAProject.Core.Entity
 {
-    class Collection
+    public class Collection
     {
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }
