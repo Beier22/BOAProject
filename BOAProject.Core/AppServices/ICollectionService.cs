@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BOAProject.Core.Entity
+namespace BOAProject.Core.AppServices
 {
-    public class Type
+    class ICollectionService
     {
     }
 }

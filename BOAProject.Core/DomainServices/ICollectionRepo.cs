@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOAProject.Core.DomainServices
 {
-    public interface ITypeRepo
+    interface ICollectionRepo
     {
     }
 }
