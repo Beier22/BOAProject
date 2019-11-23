@@ -7,7 +7,7 @@ namespace BOAProject.Core.AppServices
 {
     public interface ICollectionService
     {
-        IEnumerable<Collection> ReadCollection();
+        IEnumerable<Collection> ReadCollections();
         Collection ReadCollectionByID(int id);
         Collection AddCollection(Collection collection);
         Collection ReviseCollection(Collection collection);

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BOAProject.Infrastructure
 {
-    class BOAShopContext : DbContext
+    public class BOAShopContext : DbContext
     {
         public BOAShopContext(DbContextOptions<BOAShopContext> opt) : base(opt)
         {}
@@ -16,9 +16,50 @@ namespace BOAProject.Infrastructure
         public DbSet<Collection> Collections { get; set; }
         public DbSet<Order> Orders { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //USER TABLE
+            modelBuilder.Entity<User>()
+                .HasKey(u => u.ID);
 
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Orders)
+                .WithOne(o => o.User)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Address);
+            //USER TABLE
+            
+            //ORDER TABLE
+            modelBuilder.Entity<Order>()
+                .HasKey(o => o.ID);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.User)
+                .WithMany(u => u.Orders)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Address);
+            //ORDER TABLE
+
+            //PRODUCT TABLE
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Order)
+                .WithMany(o => o.Products)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Collection)
+                .WithMany(c => c.Products);
+            //PRODUCT TABLE
+
+            //Collection TABLE
+            modelBuilder.Entity<Collection>()
+                .HasMany(c => c.Products)
+                .WithOne(p => p.Collection);
+            //Collection TABLE
         }
 
 

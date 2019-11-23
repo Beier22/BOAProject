@@ -7,7 +7,7 @@ namespace BOAProject.Core.DomainServices
 {
     public interface IOrderRepo
     {
-        IEnumerable<Order> GetOrder();
+        IEnumerable<Order> GetOrders();
         Order GetOrderByID(int id);
         Order CreateOrder(Order order);
         Order UpdateOrder(Order order);

@@ -11,7 +11,8 @@ namespace BOAProject.Core.Entity
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
         public Boolean IsAdmin { get; set; }
-        public int AddressID { get; set; }
+        public Address Address { get; set; }
         public DateTime LastActive { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }

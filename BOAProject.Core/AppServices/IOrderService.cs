@@ -7,7 +7,7 @@ namespace BOAProject.Core.AppServices
 {
     public interface IOrderService
     {
-        IEnumerable<Order> ReadOrder();
+        IEnumerable<Order> ReadOrders();
         Order ReadOrderByID(int id);
         Order AddOrder(Order order);
         Order ReviseOrder(Order order);

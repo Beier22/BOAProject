@@ -5,9 +5,9 @@ using System.Text;
 
 namespace BOAProject.Core.DomainServices
 {
-    interface ICollectionRepo
+    public interface ICollectionRepo
     {
-        IEnumerable<Collection> GetCollection();
+        IEnumerable<Collection> GetCollections();
         Collection GetCollectionByID(int id);
         Collection CreateCollection(Collection collection);
         Collection UpdateCollection(Collection collection);

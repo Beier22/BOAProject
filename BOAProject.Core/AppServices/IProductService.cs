@@ -1,4 +1,5 @@
-﻿using BOAProject.Core.Entity;
+﻿using BOAProject.Core.DomainServices.Filtering;
+using BOAProject.Core.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
