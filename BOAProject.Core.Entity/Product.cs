@@ -24,4 +24,5 @@ namespace BOAProject.Core.Entity
 
         public string Description { get; set; }
     }
+
 }

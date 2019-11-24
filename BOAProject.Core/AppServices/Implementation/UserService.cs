@@ -17,12 +17,22 @@ namespace BOAProject.Core.AppServices.Implementation
 
         public User AddUser(User user)
         {
-            return _userRepo.CreateUser(user);
+            if (string.IsNullOrEmpty(user.Email))
+                throw new Exception("E-mail is required.");
+            else if (string.IsNullOrEmpty(user.PasswordHash))
+                throw new Exception("Password is required.");
+            else if (string.IsNullOrEmpty(user.PasswordSalt))
+                throw new Exception("Salt is required.");
+            else
+                return _userRepo.CreateUser(user);
         }
 
         public User ReadUserByID(int id)
         {
-            return _userRepo.GetUserByID(id);
+            if (id <= 0)
+                throw new Exception("Minimum ID is 1.");
+            else
+                return _userRepo.GetUserByID(id);
         }
 
         public IEnumerable<User> ReadUsers()
@@ -32,12 +42,22 @@ namespace BOAProject.Core.AppServices.Implementation
 
         public bool RemoveUser(int id)
         {
-            return _userRepo.DeleteUser(id);
+            if (id <= 0)
+                throw new Exception("Minimum ID is 1.");
+            else
+                return _userRepo.DeleteUser(id);
         }
 
         public User ReviseUser(User user)
         {
-            return _userRepo.UpdateUser(user);
+            if (string.IsNullOrEmpty(user.Email))
+                throw new Exception("E-mail is required.");
+            else if (string.IsNullOrEmpty(user.PasswordHash))
+                throw new Exception("Password is required.");
+            else if (string.IsNullOrEmpty(user.PasswordSalt))
+                throw new Exception("Salt is required.");
+            else
+                return _userRepo.UpdateUser(user);
         }
     }
 }

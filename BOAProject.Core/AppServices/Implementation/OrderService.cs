@@ -17,7 +17,16 @@ namespace BOAProject.Core.AppServices.Implementation
 
         public Order AddOrder(Order order)
         {
-            return _orderRepo.CreateOrder(order);
+            if (order.Address == null)
+                throw new Exception("Address is required.");
+            else if(order.Products.Count == 0)
+                throw new Exception("Order must have at least one product.");
+            else if(order.User == null)
+                throw new Exception("Order must have a User.");
+            else if(order.Total <= 0)
+                throw new Exception("Total value is wrong.");
+            else
+                return _orderRepo.CreateOrder(order);
         }
 
         public IEnumerable<Order> ReadOrders()
