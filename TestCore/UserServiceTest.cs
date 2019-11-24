@@ -12,5 +12,66 @@ namespace TestCore
 {
     public class UserServiceTest
     {
+        [Fact]
+        public void CreateUser_MissingPassword()
+        {
+            var userRepo = new Mock<IUserRepo>();
+
+            IUserService service = new UserService(userRepo.Object);
+
+            var user = new User()
+            {
+                Email = "email",
+                PasswordSalt = "salt",
+            };
+
+            Exception ex = Assert.Throws<Exception>(() =>
+                service.AddUser(user));
+            Assert.Equal("Password is required.", ex.Message);
+        }
+
+        [Fact]
+        public void FindUser_WrongID()
+        {
+            var userRepo = new Mock<IUserRepo>();
+
+            IUserService service = new UserService(userRepo.Object);
+
+            Exception ex = Assert.Throws<Exception>(() =>
+                service.ReadUserByID(0));
+            Assert.Equal("Minimum ID is 1.", ex.Message);
+        }
+
+        [Fact]
+        public void DeleteUser_WrongID()
+        {
+            var userRepo = new Mock<IUserRepo>();
+
+            IUserService service = new UserService(userRepo.Object);
+
+            Exception ex = Assert.Throws<Exception>(() =>
+                service.RemoveUser(0));
+            Assert.Equal("Minimum ID is 1.", ex.Message);
+        }
+
+        [Fact]
+        public void UpdateUser_MissingEmail()
+        {
+            var userRepo = new Mock<IUserRepo>();
+
+            IUserService service = new UserService(userRepo.Object);
+
+            var user = new User()
+            {
+                PasswordHash = "password",
+                PasswordSalt = "salt",
+            };
+
+            Exception ex = Assert.Throws<Exception>(() =>
+                service.ReviseUser(user));
+            Assert.Equal("E-mail is required.", ex.Message);
+        }
+
+
     }
 }

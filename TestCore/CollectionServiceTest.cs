@@ -27,6 +27,7 @@ namespace TestCore
                 service.AddCollection(collection));
             Assert.Equal("Collection name is required.", ex.Message);
         }
+
         [Fact]
         public void DeleteCollection_WrongID()
         {

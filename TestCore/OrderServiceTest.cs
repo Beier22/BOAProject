@@ -12,9 +12,39 @@ namespace TestCore
 {
     public class OrderServiceTest
     {
-   
-       
 
+        [Fact]
+        public void CreateOrder_MissingAddress()
+        {
+            var orderRepo = new Mock<IOrderRepo>();
+            
+            IOrderService service = new OrderService(orderRepo.Object);
+
+            var product = new Product()
+            {
+                Name = "Dirty Mads",
+                Size = Size.XL,
+                Type = "T-Shirt",
+                AvailableQuantity = 1,
+                Price = 99,
+                Gender = "Female",
+                Description = "Low quality T-Shirt worn by renowned Mads Beier on his alcoholic marathon JKJK."
+            };
+            var productList = new List<Product>();
+            productList.Add(product);
+
+            var order = new Order()
+            {
+                Products = productList,
+                Total = 500.9,
+                User = new User() { }, // Later when user test will be implemented this has to be changed.
+            };
+            Exception ex = Assert.Throws<Exception>(() =>
+                service.AddOrder(order));
+            Assert.Equal("Address is required.", ex.Message);
+        }
+
+       
 
     }
 }

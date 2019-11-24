@@ -28,7 +28,9 @@ namespace BOAProject.Infrastructure
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<User>()
-                .HasOne(u => u.Address);
+                .HasOne(u => u.Address)
+                .WithOne(a => a.User)
+                .OnDelete(DeleteBehavior.Cascade);
             //USER TABLE
             
             //ORDER TABLE
@@ -58,8 +60,16 @@ namespace BOAProject.Infrastructure
             //Collection TABLE
             modelBuilder.Entity<Collection>()
                 .HasMany(c => c.Products)
-                .WithOne(p => p.Collection);
+                .WithOne(p => p.Collection)
+                .OnDelete(DeleteBehavior.SetNull);
             //Collection TABLE
+
+            //Address TABLE
+            modelBuilder.Entity<Address>()
+                .HasOne(a => a.User)
+                .WithOne(u => u.Address)
+                .OnDelete(DeleteBehavior.SetNull);
+            //Address TABLE
         }
 
 
