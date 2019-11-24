@@ -36,7 +36,7 @@ namespace BOAProject.Infrastructure
 
         public IEnumerable<User> GetUsers()
         {
-            return _context.Users.AsNoTracking();
+            return _context.Users.AsNoTracking().Include(u => u.Address).Include(u => u.Orders);
         }
 
         public User UpdateUser(User user)

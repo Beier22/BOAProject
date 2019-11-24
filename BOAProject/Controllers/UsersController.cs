@@ -5,28 +5,27 @@ using System.Threading.Tasks;
 using BOAProject.Core.AppServices;
 using BOAProject.Core.DomainServices.Filtering;
 using BOAProject.Core.Entity;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BOAProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class UsersController : Controller
     {
-        private readonly IProductService _productService;
+        private readonly IUserService _userService;
 
-        public ProductsController(IProductService productService)
+        public UsersController(IUserService userService)
         {
-            _productService = productService;
+            _userService = userService;
         }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Product>> Get([FromQuery] Filter filter)
+        public ActionResult<IEnumerable<User>> Get()
         {
             try
             {
-                var products = _productService.ReadProducts(filter);
+                var products = _userService.ReadUsers();
                 return Ok(products);
             }
             catch (Exception exception)
@@ -35,33 +34,33 @@ namespace BOAProject.Controllers
             }
 
         }
-    
+
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Product> Get(int id)
+        public ActionResult<User> Get(int id)
         {
 
             try
             {
-                var product = _productService.ReadProductByID(id);
+                var product = _userService.ReadUserByID(id);
                 return Ok(product);
             }
             catch (Exception exception)
             {
                 return BadRequest(exception.Message);
             }
-            
-            }
+
+        }
 
         // POST api/values
         [HttpPost]
-        public ActionResult<Product> Post([FromBody] Product product)
+        public ActionResult<User> Post([FromBody] User user)
         {
             try
             {
-                var p = _productService.AddProduct(product);
-                return Ok("Product succesfully created.");
+                var p = _userService.AddUser(user);
+                return Ok("User succesfully created.");
             }
             catch (Exception exception)
             {
@@ -71,41 +70,41 @@ namespace BOAProject.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public ActionResult<Product> Put(int id, [FromBody] Product product)
+        public ActionResult<User> Put(int id, [FromBody] User user)
         {
             try
             {
-                if (id == product.ID)
+                if (id == user.ID)
                 {
-                    var p = _productService.ReviseProduct(product);
-                    return Ok("Product successfully updated.");
+                    var p = _userService.ReviseUser(user);
+                    return Ok("User successfully updated.");
                 }
                 else
-                    return BadRequest("ID has to be the same with product ID");
+                    return BadRequest("ID has to be the same with user ID");
             }
             catch (Exception exception)
             {
                 return BadRequest(exception.Message);
             }
-            
-            
+
+
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public ActionResult<Product> Delete(int id)
+        public ActionResult<User> Delete(int id)
         {
-            
+
             try
             {
-                var productToRemove = _productService.ReadProductByID(id);
-                if (productToRemove != null)
+                var userToRemove = _userService.ReadUserByID(id);
+                if (userToRemove != null)
                 {
-                    _productService.RemoveProduct(id);
-                    return Ok("Product successfully removed.");
+                    _userService.RemoveUser(id);
+                    return Ok("User successfully removed.");
                 }
                 else
-                    return BadRequest("Product doesn't exist");
+                    return BadRequest("User doesn't exist");
             }
             catch (Exception exception)
             {

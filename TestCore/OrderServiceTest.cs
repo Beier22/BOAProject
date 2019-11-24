@@ -37,7 +37,7 @@ namespace TestCore
             {
                 Products = productList,
                 Total = 500.9,
-                User = new User() { }, // Later when user test will be implemented this has to be changed.
+                User = new User() { }, 
             };
             Exception ex = Assert.Throws<Exception>(() =>
                 service.AddOrder(order));

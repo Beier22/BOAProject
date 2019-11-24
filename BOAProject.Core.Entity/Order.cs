@@ -11,5 +11,6 @@ namespace BOAProject.Core.Entity
         public double Total { get; set; }
         public Address Address { get; set; }
         public List<Product> Products { get; set; }
+
     }
 }

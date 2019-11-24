@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace BOAProject
 {
@@ -42,6 +44,14 @@ namespace BOAProject
                 //services.AddDbContext<BOAShopContext>(opt =>
                 //opt.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
             }
+
+
+            //Handling infinite loop while retrieving data.
+            services.AddMvc().AddJsonOptions(options => {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+            });
 
             services.AddScoped<ICollectionService, CollectionService>();
             services.AddScoped<IOrderService, OrderService>();

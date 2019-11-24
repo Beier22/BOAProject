@@ -3,31 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BOAProject.Core.AppServices;
-using BOAProject.Core.DomainServices.Filtering;
 using BOAProject.Core.Entity;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BOAProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class OrdersController : Controller
     {
-        private readonly IProductService _productService;
+        private readonly IOrderService _orderService;
 
-        public ProductsController(IProductService productService)
+        public OrdersController(IOrderService orderService)
         {
-            _productService = productService;
+            _orderService = orderService;
         }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Product>> Get([FromQuery] Filter filter)
+        public ActionResult<IEnumerable<Order>> Get()
         {
             try
             {
-                var products = _productService.ReadProducts(filter);
-                return Ok(products);
+                var orders = _orderService.ReadOrders();
+                return Ok(orders);
             }
             catch (Exception exception)
             {
@@ -35,33 +33,33 @@ namespace BOAProject.Controllers
             }
 
         }
-    
+
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Product> Get(int id)
+        public ActionResult<Order> Get(int id)
         {
 
             try
             {
-                var product = _productService.ReadProductByID(id);
-                return Ok(product);
+                var order = _orderService.ReadOrderByID(id);
+                return Ok(order);
             }
             catch (Exception exception)
             {
                 return BadRequest(exception.Message);
             }
-            
-            }
+
+        }
 
         // POST api/values
         [HttpPost]
-        public ActionResult<Product> Post([FromBody] Product product)
+        public ActionResult<Order> Post([FromBody] Order order)
         {
             try
             {
-                var p = _productService.AddProduct(product);
-                return Ok("Product succesfully created.");
+                var o = _orderService.AddOrder(order);
+                return Ok("Order succesfully created.");
             }
             catch (Exception exception)
             {
@@ -71,41 +69,41 @@ namespace BOAProject.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public ActionResult<Product> Put(int id, [FromBody] Product product)
+        public ActionResult<Order> Put(int id, [FromBody] Order order)
         {
             try
             {
-                if (id == product.ID)
+                if (id == order.ID)
                 {
-                    var p = _productService.ReviseProduct(product);
-                    return Ok("Product successfully updated.");
+                    var p = _orderService.ReviseOrder(order);
+                    return Ok("Order successfully updated.");
                 }
                 else
-                    return BadRequest("ID has to be the same with product ID");
+                    return BadRequest("ID has to be the same with order ID");
             }
             catch (Exception exception)
             {
                 return BadRequest(exception.Message);
             }
-            
-            
+
+
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public ActionResult<Product> Delete(int id)
+        public ActionResult<Order> Delete(int id)
         {
-            
+
             try
             {
-                var productToRemove = _productService.ReadProductByID(id);
-                if (productToRemove != null)
+                var userToRemove = _orderService.ReadOrderByID(id);
+                if (userToRemove != null)
                 {
-                    _productService.RemoveProduct(id);
-                    return Ok("Product successfully removed.");
+                    _orderService.RemoveOrder(id);
+                    return Ok("Order successfully removed.");
                 }
                 else
-                    return BadRequest("Product doesn't exist");
+                    return BadRequest("Order doesn't exist");
             }
             catch (Exception exception)
             {

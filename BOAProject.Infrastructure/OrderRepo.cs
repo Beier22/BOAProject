@@ -31,7 +31,7 @@ namespace BOAProject.Infrastructure
 
         public IEnumerable<Order> GetOrders()
         {
-            return _context.Orders.AsNoTracking();
+            return _context.Orders.AsNoTracking().Include(o => o.Address).Include(o => o.Products).Include(o => o.User);
         }
 
         public Order GetOrderByID(int id)

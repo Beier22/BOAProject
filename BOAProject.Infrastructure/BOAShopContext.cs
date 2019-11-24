@@ -29,7 +29,7 @@ namespace BOAProject.Infrastructure
 
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Address)
-                .WithOne(a => a.User)
+                .WithMany(a => a.Users)
                 .OnDelete(DeleteBehavior.Cascade);
             //USER TABLE
             
@@ -66,7 +66,7 @@ namespace BOAProject.Infrastructure
 
             //Address TABLE
             modelBuilder.Entity<Address>()
-                .HasOne(a => a.User)
+                .HasMany(a => a.Users)
                 .WithOne(u => u.Address)
                 .OnDelete(DeleteBehavior.SetNull);
             //Address TABLE
