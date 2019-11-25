@@ -68,6 +68,7 @@ namespace BOAProject.Infrastructure
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 LastActive = DateTime.Now,
+                IsAdmin = true
 
             }).Entity;
             var userList = new List<User>() { user };

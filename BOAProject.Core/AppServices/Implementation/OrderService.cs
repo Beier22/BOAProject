@@ -36,17 +36,32 @@ namespace BOAProject.Core.AppServices.Implementation
 
         public Order ReadOrderByID(int id)
         {
-            return _orderRepo.GetOrderByID(id);
+            if (id <= 0)
+                throw new Exception("Minimum ID is 1.");
+            else
+                return _orderRepo.GetOrderByID(id);
         }
 
         public bool RemoveOrder(int id)
         {
-            return _orderRepo.DeleteOrder(id);
+            if (id <= 0)
+                throw new Exception("Minimum ID is 1.");
+            else
+                return _orderRepo.DeleteOrder(id);
         }
 
         public Order ReviseOrder(Order order)
         {
-            return _orderRepo.UpdateOrder(order);
+            if (order.Address == null)
+                throw new Exception("Address is required.");
+            else if (order.Products.Count == 0)
+                throw new Exception("Order must have at least one product.");
+            else if (order.User == null)
+                throw new Exception("Order must have a User.");
+            else if (order.Total <= 0)
+                throw new Exception("Total value is wrong.");
+            else
+                return _orderRepo.UpdateOrder(order);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace BOAProject.Infrastructure
         public Order CreateOrder(Order order)
         {
             _context.Attach(order).State = EntityState.Added;
+            _context.SaveChanges();
             return order;
         }
 
@@ -26,6 +27,7 @@ namespace BOAProject.Infrastructure
         {
             var dispensableOrder = GetOrderByID(id);
             _context.Attach(dispensableOrder).State = EntityState.Deleted;
+            _context.SaveChanges();
             return true;
         }
 
@@ -42,6 +44,7 @@ namespace BOAProject.Infrastructure
         public Order UpdateOrder(Order order)
         {
             _context.Attach(order).State = EntityState.Modified;
+            _context.SaveChanges();
             return order;
         }
     }

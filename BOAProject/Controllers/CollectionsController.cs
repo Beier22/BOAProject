@@ -25,7 +25,10 @@ namespace BOAProject.Controllers
             try
             {
                 var collections = _collectionService.ReadCollections();
-                return Ok(collections);
+                if (collections.Any())
+                    return Ok(collections);
+                else
+                    return Ok("No collections found.");
             }
             catch (Exception exception)
             {
@@ -43,7 +46,10 @@ namespace BOAProject.Controllers
             try
             {
                 var collection = _collectionService.ReadCollectionByID(id);
-                return Ok(collection);
+                if (collection != null)
+                    return Ok(collection);
+                else
+                    return BadRequest($"Collection with ID: {id} doesn't exist.");
             }
             catch (Exception exception)
             {
@@ -58,8 +64,13 @@ namespace BOAProject.Controllers
         {
             try
             {
-                var o = _collectionService.AddCollection(collection);
-                return Ok("Collection succesfully created.");
+                if (string.IsNullOrEmpty(collection.Name))
+                    return BadRequest("Collection name is required.");
+                else
+                {
+                    var o = _collectionService.AddCollection(collection);
+                    return Ok("Collection succesfully created.");
+                }
             }
             catch (Exception exception)
             {
@@ -73,13 +84,15 @@ namespace BOAProject.Controllers
         {
             try
             {
-                if (id == collection.ID)
+                if (id != collection.ID)
+                    return BadRequest("ID has to be the same with collection ID");
+                else if (string.IsNullOrEmpty(collection.Name))
+                    throw new Exception("Collection name is required.");
+                else
                 {
                     var p = _collectionService.ReviseCollection(collection);
                     return Ok("Collection successfully updated.");
                 }
-                else
-                    return BadRequest("ID has to be the same with collection ID");
             }
             catch (Exception exception)
             {

@@ -30,8 +30,8 @@ namespace BOAProject.Core.AppServices.Implementation
                 throw new Exception("Price of the product is wrong.");
             else if (product.DiscountPrice < 0)
                 throw new Exception("Discount price of the product is wrong.");
-
-            return _productRepo.CreateProduct(product);
+            else 
+                return _productRepo.CreateProduct(product);
         }
 
         public Product ReadProductByID(int id)

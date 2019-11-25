@@ -25,7 +25,10 @@ namespace BOAProject.Controllers
             try
             {
                 var orders = _orderService.ReadOrders();
-                return Ok(orders);
+                if (orders.Any())
+                    return Ok(orders);
+                else
+                    return Ok("No orders found.");
             }
             catch (Exception exception)
             {
@@ -43,7 +46,10 @@ namespace BOAProject.Controllers
             try
             {
                 var order = _orderService.ReadOrderByID(id);
-                return Ok(order);
+                if (order != null)
+                    return Ok(order);
+                else
+                    return Ok($"Order with ID: {id} doens't exist.");
             }
             catch (Exception exception)
             {
@@ -58,8 +64,20 @@ namespace BOAProject.Controllers
         {
             try
             {
-                var o = _orderService.AddOrder(order);
-                return Ok("Order succesfully created.");
+                if (order.Address == null)
+                    return BadRequest("Address is required.");
+                else if (order.Products.Count == 0)
+                    return BadRequest("Order must have at least one product.");
+                else if (order.User == null)
+                    return BadRequest("Order must have a User.");
+                else if (order.Total <= 0)
+                    return BadRequest("Total value is wrong.");
+                else
+                {
+                    var o = _orderService.AddOrder(order);
+                    return Ok("Order succesfully created.");
+                }
+                 
             }
             catch (Exception exception)
             {
@@ -73,14 +91,22 @@ namespace BOAProject.Controllers
         {
             try
             {
-                if (id == order.ID)
+                if (id != order.ID)
+                    return BadRequest("ID and Order ID has to be the same.");
+                else if (order.Address == null)
+                    return BadRequest("Address is required.");
+                else if (order.Products.Count == 0)
+                    return BadRequest("Order must have at least one product.");
+                else if (order.User == null)
+                    return BadRequest("Order must have a User.");
+                else if (order.Total <= 0)
+                    return BadRequest("Total value is wrong.");
+                else
                 {
                     var p = _orderService.ReviseOrder(order);
-                    return Ok("Order successfully updated.");
+                    return Ok("Order successfully created.");
                 }
-                else
-                    return BadRequest("ID has to be the same with order ID");
-            }
+            }                    
             catch (Exception exception)
             {
                 return BadRequest(exception.Message);

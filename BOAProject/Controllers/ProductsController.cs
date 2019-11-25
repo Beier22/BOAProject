@@ -27,7 +27,10 @@ namespace BOAProject.Controllers
             try
             {
                 var products = _productService.ReadProducts(filter);
-                return Ok(products);
+                if (products.Any())
+                    return Ok(products);
+                else
+                    return BadRequest("No products found.");
             }
             catch (Exception exception)
             {
@@ -45,7 +48,10 @@ namespace BOAProject.Controllers
             try
             {
                 var product = _productService.ReadProductByID(id);
-                return Ok(product);
+                if (product == null)
+                    return BadRequest($"Product with ID: {id} doesn't exist.");
+                else
+                    return Ok(product);
             }
             catch (Exception exception)
             {
@@ -60,8 +66,24 @@ namespace BOAProject.Controllers
         {
             try
             {
-                var p = _productService.AddProduct(product);
-                return Ok("Product succesfully created.");
+                if (string.IsNullOrEmpty(product.Name))
+                    return BadRequest("Name of the product is required.");
+                else if (string.IsNullOrEmpty(product.Description))
+                    return BadRequest("Description of the product is required.");
+                else if (string.IsNullOrEmpty(product.Type))
+                    return BadRequest("Type of the product is required.");
+                else if (product.AvailableQuantity < 0)
+                    return BadRequest("Quantity of the product is wrong.");
+                else if (product.Price <= 0)
+                    return BadRequest("Price of the product is wrong.");
+                else if (product.DiscountPrice < 0)
+                    return BadRequest("Discount price of the product is wrong.");
+                else
+                {
+                    _productService.AddProduct(product);
+                    return Ok("Product succesfully created.");
+                }
+                
             }
             catch (Exception exception)
             {
@@ -75,13 +97,28 @@ namespace BOAProject.Controllers
         {
             try
             {
-                if (id == product.ID)
+                if (id != product.ID)
                 {
-                    var p = _productService.ReviseProduct(product);
-                    return Ok("Product successfully updated.");
+                    return BadRequest("ID and Product ID has to be the same.");
                 }
+                else if (string.IsNullOrEmpty(product.Name))
+                    return BadRequest("Name of the product is required.");
+                else if (string.IsNullOrEmpty(product.Description))
+                    return BadRequest("Description of the product is required.");
+                else if (string.IsNullOrEmpty(product.Type))
+                    return BadRequest("Type of the product is required.");
+                else if (product.AvailableQuantity < 0)
+                    return BadRequest("Quantity of the product is wrong.");
+                else if (product.Price <= 0)
+                    return BadRequest("Price of the product is wrong.");
+                else if (product.DiscountPrice < 0)
+                    return BadRequest("Discount price of the product is wrong.");
                 else
-                    return BadRequest("ID has to be the same with product ID");
+                {
+                    _productService.ReviseProduct(product);
+                    return Ok("Product was successfully updated.");
+                }
+                   
             }
             catch (Exception exception)
             {

@@ -25,8 +25,11 @@ namespace BOAProject.Controllers
         {
             try
             {
-                var products = _userService.ReadUsers();
-                return Ok(products);
+                var users = _userService.ReadUsers();
+                if (users.Any())
+                    return Ok(users);
+                else
+                    return Ok("No users found.");
             }
             catch (Exception exception)
             {
@@ -43,8 +46,11 @@ namespace BOAProject.Controllers
 
             try
             {
-                var product = _userService.ReadUserByID(id);
-                return Ok(product);
+                var user = _userService.ReadUserByID(id);
+                if (user != null)
+                    return Ok(user);
+                else
+                    return BadRequest($"User with ID: {id} doesn't exist.");
             }
             catch (Exception exception)
             {
@@ -59,8 +65,19 @@ namespace BOAProject.Controllers
         {
             try
             {
-                var p = _userService.AddUser(user);
-                return Ok("User succesfully created.");
+
+                if (string.IsNullOrEmpty(user.Email))
+                    return BadRequest("E-mail is required.");
+                else if (user.PasswordHash == null)
+                    return BadRequest("Password is required.");
+                else if (user.PasswordSalt == null)
+                    return BadRequest("Salt is required.");
+                else
+                {
+                    var p = _userService.AddUser(user);
+                    return Ok("User succesfully created.");
+                }
+                    
             }
             catch (Exception exception)
             {

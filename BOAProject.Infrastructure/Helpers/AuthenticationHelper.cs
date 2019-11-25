@@ -1,6 +1,7 @@
 ﻿using BOAProject.Core.Entity;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -50,13 +51,10 @@ namespace BOAProject.Infrastructure.Helpers
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512(storedSalt))
             {
-                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                for (int i = 0; i < computedHash.Length; i++)
-                {
-                    if (computedHash[i] != storedHash[i]) return false;
-                }
+                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return StructuralComparisons.StructuralEqualityComparer.Equals(computedHash, storedHash);
             }
-            return true;
+            
         }
 
 

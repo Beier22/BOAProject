@@ -19,6 +19,7 @@ namespace BOAProject.Infrastructure
         public User CreateUser(User user)
         {
             _context.Attach(user).State = EntityState.Added;
+            _context.SaveChanges();
             return user;
         }
 
@@ -26,6 +27,7 @@ namespace BOAProject.Infrastructure
         {
             var dispensableUser = GetUserByID(id);
             _context.Attach(dispensableUser).State = EntityState.Deleted;
+            _context.SaveChanges();
             return true;
         }
 
@@ -42,6 +44,7 @@ namespace BOAProject.Infrastructure
         public User UpdateUser(User user)
         {
             _context.Attach(user).State = EntityState.Modified;
+            _context.SaveChanges();
             return user;
         }
     }
