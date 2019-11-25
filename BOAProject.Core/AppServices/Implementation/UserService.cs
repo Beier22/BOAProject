@@ -19,9 +19,9 @@ namespace BOAProject.Core.AppServices.Implementation
         {
             if (string.IsNullOrEmpty(user.Email))
                 throw new Exception("E-mail is required.");
-            else if (string.IsNullOrEmpty(user.PasswordHash))
+            else if (user.PasswordHash == null)
                 throw new Exception("Password is required.");
-            else if (string.IsNullOrEmpty(user.PasswordSalt))
+            else if (user.PasswordSalt == null)
                 throw new Exception("Salt is required.");
             else
                 return _userRepo.CreateUser(user);
@@ -52,9 +52,9 @@ namespace BOAProject.Core.AppServices.Implementation
         {
             if (string.IsNullOrEmpty(user.Email))
                 throw new Exception("E-mail is required.");
-            else if (string.IsNullOrEmpty(user.PasswordHash))
+            else if (user.PasswordHash == null)
                 throw new Exception("Password is required.");
-            else if (string.IsNullOrEmpty(user.PasswordSalt))
+            else if (user.PasswordSalt == null)
                 throw new Exception("Salt is required.");
             else
                 return _userRepo.UpdateUser(user);
