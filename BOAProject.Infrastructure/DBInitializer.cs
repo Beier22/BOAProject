@@ -1,13 +1,21 @@
 ﻿using BOAProject.Core.Entity;
+using BOAProject.Infrastructure.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BOAProject.Infrastructure
 {
-    public static class DBInitializer
+    public  class DBInitializer
     {
-        public static void Seed(BOAShopContext ctx)
+        private readonly IAuthenticationHelper authHelp;
+
+        public DBInitializer(IAuthenticationHelper authenticationHelper)
+        {
+            authHelp = authenticationHelper;
+        }
+
+        public void Seed(BOAShopContext ctx)
         {
             ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
@@ -51,11 +59,14 @@ namespace BOAProject.Infrastructure
                 Description = "Perfect fit if you want to find gangsta dudes like Mads."
             }).Entity;
 
+            string password = "1234";
+            byte[] passwordHash, passwordSalt;
+            authHelp.CreatePasswordHash(password, out passwordHash, out passwordSalt);
             var user = ctx.Users.Add(new User()
             {
                 Email = "mbeier@gmail.com",
-                PasswordHash = "password",
-                PasswordSalt = "salty",
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
                 LastActive = DateTime.Now,
 
             }).Entity;
