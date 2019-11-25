@@ -4,7 +4,9 @@ using System.Text;
 
 namespace BOAProject.Core.Entity
 {
-    public class Type
+   public class LoginInputModel
     {
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
