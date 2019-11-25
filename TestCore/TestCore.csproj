@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BOAProject.Core\BOAProject.Core.csproj" />
+    <ProjectReference Include="..\BOAProject.Infrastructure\BOAProject.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
 using BOAProject.Core.AppServices.Implementation;
 using BOAProject.Core.DomainServices;
 using BOAProject.Core.Entity;
+using BOAProject.Infrastructure.Helpers;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,18 @@ namespace TestCore
     {
         [Fact]
         public void CreateUser_MissingPassword()
-        {
+        {   
             var userRepo = new Mock<IUserRepo>();
-
             IUserService service = new UserService(userRepo.Object);
+
+            Byte[] password = new byte[40];
+            Random rand = new Random();
+            rand.NextBytes(password);
 
             var user = new User()
             {
-                Email = "email",
-                PasswordSalt = "salt",
+                Email = "nicedude@gmail.com",
+                PasswordSalt = password,
             };
 
             Exception ex = Assert.Throws<Exception>(() =>
@@ -58,13 +62,16 @@ namespace TestCore
         public void UpdateUser_MissingEmail()
         {
             var userRepo = new Mock<IUserRepo>();
-
             IUserService service = new UserService(userRepo.Object);
+
+            Byte[] password = new byte[40];
+            Random rand = new Random();
+            rand.NextBytes(password);
 
             var user = new User()
             {
-                PasswordHash = "password",
-                PasswordSalt = "salt",
+                PasswordHash = password,
+                PasswordSalt = password,
             };
 
             Exception ex = Assert.Throws<Exception>(() =>
