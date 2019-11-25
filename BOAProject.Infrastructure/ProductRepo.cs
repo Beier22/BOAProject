@@ -43,7 +43,21 @@ namespace BOAProject.Infrastructure
         }
         public IEnumerable<Product> GetProductsFiltered(Filter filter)
         {
-            throw new NotImplementedException();
+            List<Product> filteredProducts;
+
+            if (filter.CurrentPage < 1)
+                filter.CurrentPage = 1;
+
+            if (filter.ItemsPrPage < 1)
+                filter.ItemsPrPage = 10;
+
+            filteredProducts = GetProducts()
+                
+                .Skip((filter.CurrentPage - 1) * filter.ItemsPrPage)
+                
+                .Take(filter.ItemsPrPage).ToList();
+
+            return filteredProducts;
         }
 
         public Product UpdateProduct(Product product)
