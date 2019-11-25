@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="5.6.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +18,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.EntityFrameworkCore">
       <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.2.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\system.identitymodel.tokens.jwt\5.3.0\lib\netstandard2.0\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
   </ItemGroup>
 

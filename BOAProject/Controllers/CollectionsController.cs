@@ -10,7 +10,7 @@ namespace BOAProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CollectionsController : Controller
+    public class CollectionsController : ControllerBase
     {
         private readonly ICollectionService _collectionService;
 
