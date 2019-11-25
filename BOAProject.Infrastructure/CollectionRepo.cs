@@ -19,6 +19,7 @@ namespace BOAProject.Infrastructure
         public Collection CreateCollection(Collection collection)
         {
             _context.Attach(collection).State = EntityState.Added;
+            _context.SaveChanges();
             return collection;
         }
 
@@ -26,22 +27,24 @@ namespace BOAProject.Infrastructure
         {
             var dispensableCollection = GetCollectionByID(id);
             _context.Attach(dispensableCollection).State = EntityState.Deleted;
+            _context.SaveChanges();
             return true;
         }
 
         public IEnumerable<Collection> GetCollections()
         {
-            return _context.Collections.AsNoTracking();
+            return _context.Collections.AsNoTracking().Include(c => c.Products);
         }
 
         public Collection GetCollectionByID(int id)
         {
-            return _context.Collections.AsNoTracking().FirstOrDefault(c => c.ID == id);
+            return _context.Collections.AsNoTracking().Include(c => c.Products).FirstOrDefault(c => c.ID == id);
         }
 
         public Collection UpdateCollection(Collection collection)
         {
              _context.Attach(collection).State = EntityState.Modified;
+            _context.SaveChanges();
             return collection;
         }
     }

@@ -20,6 +20,7 @@ namespace BOAProject.Infrastructure
         public Product CreateProduct(Product product)
         {
             _context.Attach(product).State = EntityState.Added;
+            _context.SaveChanges();
             return product;
         }
 
@@ -27,6 +28,7 @@ namespace BOAProject.Infrastructure
         {
             var dispensableProduct = GetProductByID(id);
             _context.Attach(dispensableProduct).State = EntityState.Deleted;
+            _context.SaveChanges();
             return true;
         }
 
@@ -47,6 +49,7 @@ namespace BOAProject.Infrastructure
         public Product UpdateProduct(Product product)
         {
             _context.Attach(product).State = EntityState.Modified;
+            _context.SaveChanges();
             return product;
         }
     }
