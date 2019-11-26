@@ -82,9 +82,11 @@ namespace BOAProject.Infrastructure
                 Users = userList
             }).Entity;
 
+            var productquantity =  ctx.ProductsQuantities.Add(new ProductQuantity() { Product = p, Quantity = 1 }).Entity;
+
             var order = ctx.Orders.Add(new Order()
             {
-                Products = new List<Product>() { p },
+                Products = new List<ProductQuantity>() { productquantity },
                 Total = p.Price,
                 Address = address,
                 User = user

@@ -12,6 +12,8 @@ namespace BOAProject.Infrastructure
         {}
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<ProductQuantity> ProductsQuantities { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Collection> Collections { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -44,17 +46,23 @@ namespace BOAProject.Infrastructure
 
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.Address);
+
+            modelBuilder.Entity<Order>()
+                .HasMany(o => o.Products);
+
             //ORDER TABLE
+
+            //PRODUCTQuantity TABLE
+            modelBuilder.Entity<ProductQuantity>()
+                .HasOne(p => p.Product);
+            //PRODUCTQuantity TABLE
 
             //PRODUCT TABLE
             modelBuilder.Entity<Product>()
-                .HasOne(p => p.Order)
-                .WithMany(o => o.Products)
-                .OnDelete(DeleteBehavior.SetNull);
-
-            modelBuilder.Entity<Product>()
                 .HasOne(p => p.Collection)
                 .WithMany(c => c.Products);
+
+            
             //PRODUCT TABLE
 
             //Collection TABLE
