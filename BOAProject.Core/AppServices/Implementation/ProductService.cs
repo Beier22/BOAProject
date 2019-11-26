@@ -44,10 +44,7 @@ namespace BOAProject.Core.AppServices.Implementation
 
         public IEnumerable<Product> ReadProducts(Filter filter)
         {
-            if (filter.ItemsPrPage < 1 || filter.CurrentPage < 1)
-                return _productRepo.GetProducts();
-            else
-                return _productRepo.GetProductsFiltered(filter);
+            return _productRepo.GetProductsFiltered(filter);
         }
 
         public bool RemoveProduct(int id)

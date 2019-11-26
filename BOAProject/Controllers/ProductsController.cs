@@ -39,7 +39,7 @@ namespace BOAProject.Controllers
 
         }
     
-
+        
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<Product> Get(int id)
@@ -58,7 +58,9 @@ namespace BOAProject.Controllers
                 return BadRequest(exception.Message);
             }
             
-            }
+        }
+        
+        
 
         // POST api/values
         [HttpPost]

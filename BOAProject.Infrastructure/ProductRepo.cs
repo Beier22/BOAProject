@@ -51,7 +51,7 @@ namespace BOAProject.Infrastructure
             if (filter.ItemsPrPage < 1)
                 filter.ItemsPrPage = 10;
 
-            filteredProducts = GetProducts()
+            filteredProducts = OrderProducts(GetProducts(), filter)
                 
                 .Skip((filter.CurrentPage - 1) * filter.ItemsPrPage)
                 
@@ -65,6 +65,21 @@ namespace BOAProject.Infrastructure
             _context.Attach(product).State = EntityState.Modified;
             _context.SaveChanges();
             return product;
+        }
+
+        public IEnumerable<Product> OrderProducts(IEnumerable<Product> products, Filter filter)
+        {
+            switch (filter.Order)
+            {
+                case OrderBy.asc:
+                    return products.OrderBy(p => p.Price);
+                case OrderBy.dsc:
+                    return products.OrderByDescending(p => p.Price);
+                case OrderBy.col:
+                    return products.OrderBy(p => p.Collection.Name);
+            }
+
+            return products;
         }
     }
 }
