@@ -8,4 +8,8 @@
     <ProjectReference Include="..\BOAProject.Core.Entity\BOAProject.Core.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
 </Project>
