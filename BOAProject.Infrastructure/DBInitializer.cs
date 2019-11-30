@@ -20,40 +20,90 @@ namespace BOAProject.Infrastructure
             ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
 
-            var c = ctx.Collections.Add(new Collection()
+
+            //Adding all collections
+            var The6ixCollection = ctx.Collections.Add(new Collection()
             {
-                Name = "Mads fashion"
+                Name = "The 6ix Collection"
             }).Entity;
+            var BOAChampion = ctx.Collections.Add(new Collection()
+            {
+                Name = "BOA x Champion"
+            }).Entity;
+            var TheRoseCollection = ctx.Collections.Add(new Collection()
+            {
+                Name = "The Rose Collection"
+            }).Entity;
+            var HalfInHalf = ctx.Collections.Add(new Collection()
+            {
+                Name = "Half In Half"
+            }).Entity;
+
+            var sizes = new List<SizeQuantity>() {
+            new SizeQuantity(Size.L,10),
+            new SizeQuantity(Size.M,160),
+            new SizeQuantity(Size.S,490),
+            new SizeQuantity(Size.XL,240),
+            new SizeQuantity(Size.XXL,10)
+            };
 
             var p = ctx.Products.Add(new Product()
             {
-                Name = "Dirty Mads",
-                Size = Size.XL,
+                Name = "Constrictor T-Shirt",
+                SizeQuantity = sizes,
                 Type = "T-Shirt",
-                AvailableQuantity = 1,
-                Collection = c,
-                Price = 99,
-                Gender = "Female",
-                Description = "Low quality T-Shirt worn by renowned Mads Beier on his alcoholic marathon JKJK."
+                Collection = The6ixCollection,
+                Price = 59.99,
+                Gender = "Male",
+                Description = "The tri-blend fabric creates a vintage, fitted look. And extreme durability makes this t-shirt withstand repeated washings and still remain super comfortable.\n"+
+               "\n• Tri - blend construction(50 % polyester / 25 % combed ring - spun cotton / 25 % rayon)" +
+               "\n• 40 singles thread weight" +
+               "\n• Comfortable and durable" +
+               "\n• Contemporary fit" +
+               "\n• Lightweight",
+                Pictures =  new List<Picture>() {
+                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-7e5f3a3f_590x.png?v=1570240884"},
+                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-2ade0e5d_720x.png?v=1570240884"},
+                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-e129077d_720x.png?v=1570240884"},
+                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-10285377_720x.png?v=1570240884"},
+                }
             }).Entity;
+
+            var sizes2 = new List<SizeQuantity>() {
+            new SizeQuantity(Size.L,30),
+            new SizeQuantity(Size.M,330),
+            new SizeQuantity(Size.S,305),
+            new SizeQuantity(Size.XL,50),
+            new SizeQuantity(Size.XXL,0)
+            };
             var p2 = ctx.Products.Add(new Product()
             {
-                Name = "Clean Mads",
-                Size = Size.XL,
-                Type = "Hoodie",
-                AvailableQuantity = 5,
-                Collection = c,
-                Price = 159,
+                Name = "Constrictor Crop Top",
+                SizeQuantity = sizes2,
+                Type = "Top",
+                Collection = The6ixCollection,
+                Price = 54.99,
                 Gender = "Female",
-                Description = "Lately washed hoodie."
+                Description = "A fitted crop top to pair with skirts, jeans, and much more. Made of 100% cotton, this crop top has a soft hand feel and light texture."+
+                "\n• 100 % 30 / 1 combed cotton" +
+                "\n• Form fitting" +
+                "\n• Made in the USA" +
+                "\n• Two colors: black and white" +
+                "\n• Bottom hem has an unfinished, raw edge"
             }).Entity;
+            var sizes3 = new List<SizeQuantity>() {
+            new SizeQuantity(Size.L,0),
+            new SizeQuantity(Size.M,370),
+            new SizeQuantity(Size.S,390),
+            new SizeQuantity(Size.XL,30),
+            new SizeQuantity(Size.XXL,60)
+            };
             var p3 = ctx.Products.Add(new Product()
             {
                 Name = "Mads in tha hood",
-                Size = Size.XXL,
+                //SizeQuantity = dictionary,
                 Type = "Hoodie",
-                AvailableQuantity = 15,
-                Collection = c,
+                Collection = TheRoseCollection,
                 Price = 299,
                 Gender = "Male",
                 Description = "Perfect fit if you want to find gangsta dudes like Mads."
@@ -86,7 +136,7 @@ namespace BOAProject.Infrastructure
 
             var order = ctx.Orders.Add(new Order()
             {
-                Products = new List<ProductQuantity>() { productquantity },
+                ProductQuantity = new List<ProductQuantity>() { productquantity },
                 Total = p.Price,
                 Address = address,
                 User = user

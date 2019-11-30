@@ -52,7 +52,7 @@ namespace BOAProject
             });
 
             services.AddCors(options =>
-                options.AddPolicy("AnyOrigin", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod())
+                options.AddPolicy("AnyOrigin", builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod())
             );
 
 
@@ -104,6 +104,7 @@ namespace BOAProject
                 database.Seed(context);
 
             }
+            app.UseCors("AllowSpecificOrigin");
 
             if (env.IsDevelopment())
             {

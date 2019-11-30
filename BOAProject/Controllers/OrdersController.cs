@@ -66,7 +66,7 @@ namespace BOAProject.Controllers
             {
                 if (order.Address == null)
                     return BadRequest("Address is required.");
-                else if (order.Products.Count == 0)
+                else if (order.ProductQuantity.Count == 0)
                     return BadRequest("Order must have at least one product.");
                 else if (order.User == null)
                     return BadRequest("Order must have a User.");
@@ -95,7 +95,7 @@ namespace BOAProject.Controllers
                     return BadRequest("ID and Order ID has to be the same.");
                 else if (order.Address == null)
                     return BadRequest("Address is required.");
-                else if (order.Products.Count == 0)
+                else if (order.ProductQuantity.Count == 0)
                     return BadRequest("Order must have at least one product.");
                 else if (order.User == null)
                     return BadRequest("Order must have a User.");

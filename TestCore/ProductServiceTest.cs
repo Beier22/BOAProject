@@ -23,8 +23,7 @@ namespace TestCore
             Product p = new Product()
             {
                 Name = "Dirty Mads",
-                Size = Size.XL,
-                AvailableQuantity = 1,
+                SizeQuantity = new List<SizeQuantity>(),
                 Price = 99,
                 Gender = "Female",
                 Description = "Low quality T-Shirt worn by renowned Mads Beier on his alcoholic marathon JKJK."
@@ -69,8 +68,8 @@ namespace TestCore
             Product p = new Product()
             {
                 Name = "Dirty Mads",
-                Size = Size.XL,
-                AvailableQuantity = 1,
+                SizeQuantity = new List<SizeQuantity>(),
+
                 Type = "T-Shirt",
                 Price = 0,
                 Gender = "Female",

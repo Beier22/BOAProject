@@ -6,7 +6,7 @@ namespace BOAProject.Core.Entity
 {
     public enum Size
     {
-        S, M, L, XL, XXL
+        XS, S, M, L, XL, XXL
     }
 
     public class Product
@@ -16,13 +16,14 @@ namespace BOAProject.Core.Entity
         public string Type { get; set; }
         public string Gender { get; set; }
         public double Price { get; set; }
-        public Size Size { get; set; }
-        public int AvailableQuantity { get; set; }
+        public List<SizeQuantity> SizeQuantity { get; set; }
         public Order Order { get; set; }
         public double DiscountPrice { get; set; }
         public Collection Collection { get; set; }
 
         public string Description { get; set; }
-    }
+        public List<Picture> Pictures { get; set; }
+}
 
+    
 }

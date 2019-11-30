@@ -74,8 +74,6 @@ namespace BOAProject.Controllers
                     return BadRequest("Description of the product is required.");
                 else if (string.IsNullOrEmpty(product.Type))
                     return BadRequest("Type of the product is required.");
-                else if (product.AvailableQuantity < 0)
-                    return BadRequest("Quantity of the product is wrong.");
                 else if (product.Price <= 0)
                     return BadRequest("Price of the product is wrong.");
                 else if (product.DiscountPrice < 0)
@@ -109,8 +107,6 @@ namespace BOAProject.Controllers
                     return BadRequest("Description of the product is required.");
                 else if (string.IsNullOrEmpty(product.Type))
                     return BadRequest("Type of the product is required.");
-                else if (product.AvailableQuantity < 0)
-                    return BadRequest("Quantity of the product is wrong.");
                 else if (product.Price <= 0)
                     return BadRequest("Price of the product is wrong.");
                 else if (product.DiscountPrice < 0)

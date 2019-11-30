@@ -10,7 +10,7 @@ namespace BOAProject.Core.Entity
         public User User { get; set; }
         public double Total { get; set; }
         public Address Address { get; set; }
-        public List<ProductQuantity> Products { get; set; }
+        public List<ProductQuantity> ProductQuantity { get; set; }
 
     }
 }
