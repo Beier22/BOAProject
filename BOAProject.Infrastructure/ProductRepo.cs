@@ -77,11 +77,11 @@ namespace BOAProject.Infrastructure
 
         public IEnumerable<Product> OrderProductsByPrice(IEnumerable<Product> products, Filter filter)
         {
-            switch (filter.Order)
+            switch (filter.Price)
             {
-                case OrderBy.asc:
+                case Price.asc:
                     return products.OrderBy(p => p.Price);
-                case OrderBy.dsc:
+                case Price.dsc:
                     return products.OrderByDescending(p => p.Price);
             }
             return products;
