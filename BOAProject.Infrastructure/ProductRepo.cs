@@ -39,7 +39,7 @@ namespace BOAProject.Infrastructure
 
         public IEnumerable<Product> GetProducts()
         {
-            return _context.Products.AsNoTracking().Include(p => p.SizeQuantity).Include(p => p.Collection);
+            return _context.Products.AsNoTracking().Include(p => p.SizeQuantity).Include(p => p.Collection).Include(p => p.Pictures);
         }
         public IEnumerable<Product> GetProductsFiltered(Filter filter)
         {
