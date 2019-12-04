@@ -70,6 +70,10 @@ namespace BOAProject.Infrastructure
 
         public Product UpdateProduct(Product product)
         {
+            if(product.Collection == null)
+            {
+                _context.Entry(product).Reference(p => p.Collection).IsModified = true;
+            }
             _context.Attach(product).State = EntityState.Modified;
             _context.SaveChanges();
             return product;
