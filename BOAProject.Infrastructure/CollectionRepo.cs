@@ -33,7 +33,7 @@ namespace BOAProject.Infrastructure
 
         public IEnumerable<Collection> GetCollections()
         {
-            return _context.Collections.AsNoTracking().Include(c => c.Products);
+            return _context.Collections.AsNoTracking().Include(c => c.Products).ThenInclude(pr => pr.Pictures);
         }
 
         public Collection GetCollectionByID(int id)
