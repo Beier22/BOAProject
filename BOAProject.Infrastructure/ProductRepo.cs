@@ -34,12 +34,12 @@ namespace BOAProject.Infrastructure
 
         public Product GetProductByID(int id)
         {
-            return _context.Products.AsNoTracking().Include(p => p.Pictures).Include(p => p.Collection).FirstOrDefault(c => c.ID == id);
+            return _context.Products.Include(p => p.Pictures).Include(p => p.Collection).FirstOrDefault(c => c.ID == id);
         }
 
         public IEnumerable<Product> GetProducts()
         {
-            return _context.Products.AsNoTracking().Include(p => p.SizeQuantity).Include(p => p.Collection).Include(p => p.Pictures);
+            return _context.Products.Include(p => p.SizeQuantity).Include(p => p.Collection).Include(p => p.Pictures);
         }
         public IEnumerable<Product> GetProductsFiltered(Filter filter)
         {
