@@ -49,17 +49,17 @@ namespace BOAProject.Infrastructure
             if (filter.ItemsPrPage < 1)
                 filter.ItemsPrPage = 12;
 
-            IEnumerable<Product> allProducts = GetProducts();
+            var allProducts = GetProducts();
             //If filter contains gender collection
-            IEnumerable<Product> particularCollection = GetProductsByCollection(allProducts, filter);
+            var particularCollection = GetProductsByCollection(allProducts, filter);
             //If filter contains gender specification
-            IEnumerable<Product> particularGender = GetProductsByGender(particularCollection, filter);
+            var particularGender = GetProductsByGender(particularCollection, filter);
             //If filter contains both gender and type of the product
-            IEnumerable<Product> particularGenderAndType = GetProductsByGenderAndType(particularGender, filter);
+            var particularGenderAndType = GetProductsByGenderAndType(particularGender, filter);
 
 
 
-            IEnumerable<Product> filteredProducts = OrderProductsByPrice(particularGenderAndType, filter)
+            var filteredProducts = OrderProductsByPrice(particularGenderAndType, filter)
 
                 .Skip((filter.CurrentPage - 1) * filter.ItemsPrPage)
 
@@ -94,8 +94,15 @@ namespace BOAProject.Infrastructure
 
         public IEnumerable<Product> GetProductsByGender(IEnumerable<Product> products, Filter filter)
         {
+            IEnumerable<Product> genderSpecific;
+            IEnumerable<Product> unisex;
             if (!string.IsNullOrEmpty(filter.Gender))
-                return products.Where(p => p.Gender !=null && p.Gender.ToLower().Equals(filter.Gender.ToLower()));
+            {
+                    genderSpecific = products.Where(p => p.Gender != null && p.Gender.ToLower().Equals(filter.Gender.ToLower()));
+                    unisex = products.Where(p => p.Gender != null && p.Gender.ToLower().Equals("unisex"));
+                
+                return genderSpecific.Concat(unisex);
+            }
             else
                 return products;
         }
