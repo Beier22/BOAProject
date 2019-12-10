@@ -251,7 +251,7 @@ namespace BOAProject.Infrastructure
             {
                 Name = "Ringer T-Shirt (Unisex)",
                 SizeQuantity = sizes,
-                Type = "Tops",
+                Type = "T-Shrits",
                 Collection = The6ixCollection,
                 Price = 59.99,
                 Gender = "Unisex",
