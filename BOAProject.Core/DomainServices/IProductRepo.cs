@@ -14,7 +14,7 @@ namespace BOAProject.Core.DomainServices
         Product CreateProduct(Product product);
         Product UpdateProduct(Product product);
         bool DeleteProduct(int id);
-        IEnumerable<Product> OrderProductsByPrice(IEnumerable<Product> products, Filter filter);
+        IEnumerable<Product> OrderProducts(IEnumerable<Product> products, Filter filter);
 
     }
 }

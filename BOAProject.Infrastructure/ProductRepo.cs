@@ -59,7 +59,7 @@ namespace BOAProject.Infrastructure
 
 
 
-            var filteredProducts = OrderProductsByPrice(particularGenderAndType, filter)
+            var filteredProducts = OrderProducts(particularGenderAndType, filter)
 
                 .Skip((filter.CurrentPage - 1) * filter.ItemsPrPage)
 
@@ -79,13 +79,25 @@ namespace BOAProject.Infrastructure
             return product;
         }
 
-        public IEnumerable<Product> OrderProductsByPrice(IEnumerable<Product> products, Filter filter)
+        public IEnumerable<Product> OrderProducts(IEnumerable<Product> products, Filter filter)
         {
-            switch (filter.Price)
+            switch (filter.Order)
             {
-                case Price.asc:
+                case OrderBy.IDAsc:
+                    return products.OrderBy(p => p.ID);
+                case OrderBy.IDDsc:
+                    return products.OrderByDescending(p => p.ID);
+                case OrderBy.nameAsc:
+                    return products.OrderBy(p => p.Name);
+                case OrderBy.nameDsc:
+                    return products.OrderByDescending(p => p.Name);
+                case OrderBy.typeAsc:
+                    return products.OrderBy(p => p.Type);
+                case OrderBy.typeDsc:
+                    return products.OrderByDescending(p => p.Type);
+                case OrderBy.priceAsc:
                     return products.OrderBy(p => p.Price);
-                case Price.dsc:
+                case OrderBy.priceDsc:
                     return products.OrderByDescending(p => p.Price);
             }
             return products;
