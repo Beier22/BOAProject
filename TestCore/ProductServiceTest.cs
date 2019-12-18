@@ -22,11 +22,11 @@ namespace TestCore
 
             Product p = new Product()
             {
-                Name = "Dirty Mads",
+                Name = "Dirty Joe",
                 SizeQuantity = new List<SizeQuantity>(),
                 Price = 99,
                 Gender = "Female",
-                Description = "Low quality T-Shirt worn by renowned Mads Beier on his alcoholic marathon JKJK."
+                Description = "Low quality T-Shirt worn by renowned Joe Biden."
             };
 
             Exception ex = Assert.Throws<Exception>(() =>
@@ -67,13 +67,13 @@ namespace TestCore
 
             Product p = new Product()
             {
-                Name = "Dirty Mads",
+                Name = "The Donald",
                 SizeQuantity = new List<SizeQuantity>(),
 
                 Type = "T-Shirt",
                 Price = 0,
                 Gender = "Female",
-                Description = "Low quality T-Shirt worn by renowned Mads Beier on his alcoholic marathon JKJK."
+                Description = "Low quality T-Shirt worn by renowned Donald Trump."
             };
 
             Exception ex = Assert.Throws<Exception>(() =>
