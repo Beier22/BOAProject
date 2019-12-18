@@ -19,14 +19,9 @@ namespace TestCore
             var userRepo = new Mock<IUserRepo>();
             IUserService service = new UserService(userRepo.Object);
 
-            Byte[] password = new byte[40];
-            Random rand = new Random();
-            rand.NextBytes(password);
-
             var user = new LoginInputModel()
             {
-                Email = "nicedude@gmail.com",
-                Password = Convert.ToBase64String(password)
+                Email = "nicedude@gmail.com"
             };
 
             Exception ex = Assert.Throws<Exception>(() =>
