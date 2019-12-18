@@ -1,5 +1,6 @@
 ﻿using BOAProject.Core.DomainServices;
 using BOAProject.Core.Entity;
+using BOAProject.Infrastructure.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,22 @@ namespace BOAProject.Infrastructure
 {
     public class UserRepo : IUserRepo
     {
+        private readonly IAuthenticationHelper _authHelp;
         private readonly BOAShopContext _context;
 
-        public UserRepo(BOAShopContext context)
+        public UserRepo(BOAShopContext context, IAuthenticationHelper authHelp)
         {
             _context = context;
+            _authHelp = authHelp;
         }
-        public User CreateUser(User user)
+        public User CreateUser(LoginInputModel input)
         {
+            User user = new User();
+            user.Email = input.Email;
+            byte[] passwordHash, passwordSalt;
+            _authHelp.CreatePasswordHash(input.Password, out passwordHash, out passwordSalt);
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
             _context.Attach(user).State = EntityState.Added;
             _context.SaveChanges();
             return user;
@@ -33,7 +42,7 @@ namespace BOAProject.Infrastructure
 
         public User GetUserByID(int id)
         {
-            return _context.Users.AsNoTracking().FirstOrDefault(c => c.ID == id);
+            return _context.Users.AsNoTracking().Include(u => u.Address).Include(u => u.Orders).FirstOrDefault(c => c.ID == id);
         }
 
         public IEnumerable<User> GetUsers()

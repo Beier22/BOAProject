@@ -387,14 +387,26 @@ namespace BOAProject.Infrastructure
                 IsAdmin = true
 
             }).Entity;
-            var userList = new List<User>() { user };
+            string password2 = "5678";
+            byte[] passwordHash2, passwordSalt2;
+            authHelp.CreatePasswordHash(password2, out passwordHash2, out passwordSalt2);
+            var user2 = ctx.Users.Add(new User()
+            {
+                Email = "mrhandsome@gmail.com",
+                PasswordHash = passwordHash2,
+                PasswordSalt = passwordSalt2,
+                LastActive = DateTime.Now,
+                IsAdmin = false
+
+            }).Entity;
+            var userList = new List<User>() { user, user2 };
 
             var address = ctx.Addresses.Add(new Address()
             {
-                Street = "Street",
-                City = "City",
-                Country = "Country",
-                ZipCode = "zipcode",
+                Street = "Danmarksgade 68",
+                City = "Esbjerg",
+                Country = "Denmark",
+                ZipCode = "6700",
                 Users = userList
             }).Entity;
 

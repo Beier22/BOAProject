@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BOAProject.Core.AppServices;
 using BOAProject.Core.DomainServices.Filtering;
 using BOAProject.Core.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -59,10 +60,11 @@ namespace BOAProject.Controllers
             }
             
         }
-        
-        
+
+
 
         // POST api/values
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult<Product> Post([FromBody] Product product)
         {
@@ -92,6 +94,7 @@ namespace BOAProject.Controllers
         }
 
         // PUT api/values/5
+        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public ActionResult<Product> Put(int id, [FromBody] Product product)
         {
@@ -127,6 +130,7 @@ namespace BOAProject.Controllers
         }
 
         // DELETE api/values/5
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("{id}")]
         public ActionResult<Product> Delete(int id)
         {

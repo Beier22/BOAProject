@@ -23,10 +23,10 @@ namespace TestCore
             Random rand = new Random();
             rand.NextBytes(password);
 
-            var user = new User()
+            var user = new LoginInputModel()
             {
                 Email = "nicedude@gmail.com",
-                PasswordSalt = password,
+                Password = Convert.ToBase64String(password)
             };
 
             Exception ex = Assert.Throws<Exception>(() =>

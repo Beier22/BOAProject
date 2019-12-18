@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BOAProject.Core.AppServices;
 using BOAProject.Core.DomainServices.Filtering;
 using BOAProject.Core.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BOAProject.Controllers
@@ -20,6 +21,7 @@ namespace BOAProject.Controllers
             _userService = userService;
         }
         // GET api/values
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult<IEnumerable<User>> Get()
         {
@@ -40,6 +42,7 @@ namespace BOAProject.Controllers
 
 
         // GET api/values/5
+        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<User> Get(int id)
         {
@@ -48,7 +51,12 @@ namespace BOAProject.Controllers
             {
                 var user = _userService.ReadUserByID(id);
                 if (user != null)
-                    return Ok(user);
+                    return Ok(new { 
+                        id = user.ID,
+                        email = user.Email,
+                        address = user.Address,
+                        orders = user.Orders
+                    });
                 else
                     return BadRequest($"User with ID: {id} doesn't exist.");
             }
@@ -61,20 +69,18 @@ namespace BOAProject.Controllers
 
         // POST api/values
         [HttpPost]
-        public ActionResult<User> Post([FromBody] User user)
+        public ActionResult<User> Post([FromBody] LoginInputModel input)
         {
             try
             {
 
-                if (string.IsNullOrEmpty(user.Email))
+                if (string.IsNullOrEmpty(input.Email))
                     return BadRequest("E-mail is required.");
-                else if (user.PasswordHash == null)
+                else if (string.IsNullOrEmpty(input.Password))
                     return BadRequest("Password is required.");
-                else if (user.PasswordSalt == null)
-                    return BadRequest("Salt is required.");
                 else
                 {
-                    var p = _userService.AddUser(user);
+                    var p = _userService.AddUser(input);
                     return Ok("User succesfully created.");
                 }
                     
@@ -86,6 +92,7 @@ namespace BOAProject.Controllers
         }
 
         // PUT api/values/5
+        [Authorize]
         [HttpPut("{id}")]
         public ActionResult<User> Put(int id, [FromBody] User user)
         {
@@ -94,7 +101,7 @@ namespace BOAProject.Controllers
                 if (id == user.ID)
                 {
                     var p = _userService.ReviseUser(user);
-                    return Ok("User successfully updated.");
+                    return Ok(p);
                 }
                 else
                     return BadRequest("ID has to be the same with user ID");
@@ -108,6 +115,7 @@ namespace BOAProject.Controllers
         }
 
         // DELETE api/values/5
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("{id}")]
         public ActionResult<User> Delete(int id)
         {
