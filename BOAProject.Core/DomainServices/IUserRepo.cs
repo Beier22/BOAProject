@@ -9,7 +9,7 @@ namespace BOAProject.Core.DomainServices
     {
         IEnumerable<User> GetUsers();
         User GetUserByID(int id);
-        User CreateUser(User user);
+        User CreateUser(LoginInputModel input);
         User UpdateUser(User user);
         bool DeleteUser(int id);
     }

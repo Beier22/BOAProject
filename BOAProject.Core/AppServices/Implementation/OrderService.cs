@@ -19,7 +19,7 @@ namespace BOAProject.Core.AppServices.Implementation
         {
             if (order.Address == null)
                 throw new Exception("Address is required.");
-            else if(order.Products.Count == 0)
+            else if(order.ProductQuantity.Count == 0)
                 throw new Exception("Order must have at least one product.");
             else if(order.User == null)
                 throw new Exception("Order must have a User.");
@@ -54,7 +54,7 @@ namespace BOAProject.Core.AppServices.Implementation
         {
             if (order.Address == null)
                 throw new Exception("Address is required.");
-            else if (order.Products.Count == 0)
+            else if (order.ProductQuantity.Count == 0)
                 throw new Exception("Order must have at least one product.");
             else if (order.User == null)
                 throw new Exception("Order must have a User.");

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BOAProject.Core.AppServices;
 using BOAProject.Core.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BOAProject.Controllers
@@ -19,6 +20,7 @@ namespace BOAProject.Controllers
             _orderService = orderService;
         }
         // GET api/values
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult<IEnumerable<Order>> Get()
         {
@@ -39,6 +41,7 @@ namespace BOAProject.Controllers
 
 
         // GET api/values/5
+        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<Order> Get(int id)
         {
@@ -66,7 +69,7 @@ namespace BOAProject.Controllers
             {
                 if (order.Address == null)
                     return BadRequest("Address is required.");
-                else if (order.Products.Count == 0)
+                else if (order.ProductQuantity.Count == 0)
                     return BadRequest("Order must have at least one product.");
                 else if (order.User == null)
                     return BadRequest("Order must have a User.");
@@ -86,6 +89,7 @@ namespace BOAProject.Controllers
         }
 
         // PUT api/values/5
+        [Authorize]
         [HttpPut("{id}")]
         public ActionResult<Order> Put(int id, [FromBody] Order order)
         {
@@ -95,7 +99,7 @@ namespace BOAProject.Controllers
                     return BadRequest("ID and Order ID has to be the same.");
                 else if (order.Address == null)
                     return BadRequest("Address is required.");
-                else if (order.Products.Count == 0)
+                else if (order.ProductQuantity.Count == 0)
                     return BadRequest("Order must have at least one product.");
                 else if (order.User == null)
                     return BadRequest("Order must have a User.");
@@ -116,6 +120,7 @@ namespace BOAProject.Controllers
         }
 
         // DELETE api/values/5
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("{id}")]
         public ActionResult<Order> Delete(int id)
         {

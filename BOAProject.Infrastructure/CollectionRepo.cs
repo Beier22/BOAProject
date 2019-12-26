@@ -18,7 +18,11 @@ namespace BOAProject.Infrastructure
         }
         public Collection CreateCollection(Collection collection)
         {
-            _context.Attach(collection).State = EntityState.Added;
+            if (collection.Products != null)
+            {
+                _context.AttachRange(collection.Products);
+            }
+            _context.Add(collection);
             _context.SaveChanges();
             return collection;
         }
@@ -33,17 +37,21 @@ namespace BOAProject.Infrastructure
 
         public IEnumerable<Collection> GetCollections()
         {
-            return _context.Collections.AsNoTracking().Include(c => c.Products);
+            return _context.Collections.Include(c => c.Products).ThenInclude(pr => pr.Pictures);
         }
 
         public Collection GetCollectionByID(int id)
         {
-            return _context.Collections.AsNoTracking().Include(c => c.Products).FirstOrDefault(c => c.ID == id);
+            return _context.Collections.Include(c => c.Products).FirstOrDefault(c => c.ID == id);
         }
 
         public Collection UpdateCollection(Collection collection)
         {
-             _context.Attach(collection).State = EntityState.Modified;
+            if (collection.Products == null)
+            {
+                _context.Entry(collection).Reference(c => c.Products).IsModified = true;
+            } 
+            _context.Attach(collection).State = EntityState.Modified;
             _context.SaveChanges();
             return collection;
         }

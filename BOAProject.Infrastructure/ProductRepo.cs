@@ -34,27 +34,35 @@ namespace BOAProject.Infrastructure
 
         public Product GetProductByID(int id)
         {
-            return _context.Products.AsNoTracking().FirstOrDefault(c => c.ID == id);
+            return _context.Products.Include(p => p.Pictures).Include(p => p.Collection).FirstOrDefault(c => c.ID == id);
         }
 
         public IEnumerable<Product> GetProducts()
         {
-            return _context.Products.AsNoTracking().Include(p => p.Collection);
+            return _context.Products.Include(p => p.SizeQuantity).Include(p => p.Collection).Include(p => p.Pictures);
         }
         public IEnumerable<Product> GetProductsFiltered(Filter filter)
         {
-            List<Product> filteredProducts;
-
+            
             if (filter.CurrentPage < 1)
                 filter.CurrentPage = 1;
-
             if (filter.ItemsPrPage < 1)
-                filter.ItemsPrPage = 10;
+                filter.ItemsPrPage = 12;
 
-            filteredProducts = GetProducts()
-                
+            var allProducts = GetProducts();
+            //If filter contains gender collection
+            var particularCollection = GetProductsByCollection(allProducts, filter);
+            //If filter contains gender specification
+            var particularGender = GetProductsByGender(particularCollection, filter);
+            //If filter contains both gender and type of the product
+            var particularGenderAndType = GetProductsByGenderAndType(particularGender, filter);
+
+
+
+            var filteredProducts = OrderProducts(particularGenderAndType, filter)
+
                 .Skip((filter.CurrentPage - 1) * filter.ItemsPrPage)
-                
+
                 .Take(filter.ItemsPrPage).ToList();
 
             return filteredProducts;
@@ -62,9 +70,71 @@ namespace BOAProject.Infrastructure
 
         public Product UpdateProduct(Product product)
         {
+            if(product.Collection == null)
+            {
+                _context.Entry(product).Reference(p => p.Collection).IsModified = true;
+            }
             _context.Attach(product).State = EntityState.Modified;
             _context.SaveChanges();
             return product;
         }
+
+        public IEnumerable<Product> OrderProducts(IEnumerable<Product> products, Filter filter)
+        {
+            switch (filter.Order)
+            {
+                case OrderBy.IDAsc:
+                    return products.OrderBy(p => p.ID);
+                case OrderBy.IDDsc:
+                    return products.OrderByDescending(p => p.ID);
+                case OrderBy.nameAsc:
+                    return products.OrderBy(p => p.Name);
+                case OrderBy.nameDsc:
+                    return products.OrderByDescending(p => p.Name);
+                case OrderBy.typeAsc:
+                    return products.OrderBy(p => p.Type);
+                case OrderBy.typeDsc:
+                    return products.OrderByDescending(p => p.Type);
+                case OrderBy.priceAsc:
+                    return products.OrderBy(p => p.Price);
+                case OrderBy.priceDsc:
+                    return products.OrderByDescending(p => p.Price);
+            }
+            return products;
+        }
+
+
+        public IEnumerable<Product> GetProductsByGender(IEnumerable<Product> products, Filter filter)
+        {
+            IEnumerable<Product> genderSpecific;
+            IEnumerable<Product> unisex;
+            if (!string.IsNullOrEmpty(filter.Gender))
+            {
+                    genderSpecific = products.Where(p => p.Gender != null && p.Gender.ToLower().Equals(filter.Gender.ToLower()));
+                    unisex = products.Where(p => p.Gender != null && p.Gender.ToLower().Equals("unisex"));
+                
+                return genderSpecific.Concat(unisex);
+            }
+            else
+                return products;
+        }
+        public IEnumerable<Product> GetProductsByGenderAndType(IEnumerable<Product> products, Filter filter)
+        {
+            if (!string.IsNullOrEmpty(filter.Type))
+                return products.Where(p => p.Type !=null &&  p.Type.ToLower().Equals(filter.Type.ToLower()));
+            else
+                return products;
+
+        }
+        public IEnumerable<Product> GetProductsByCollection(IEnumerable<Product> products, Filter filter)
+        {
+            if (!string.IsNullOrEmpty(filter.Collection))
+                return products.Where(p => p.Collection !=null && p.Collection.Name.ToLower().Equals(filter.Collection.ToLower()));
+            else
+                return products;
+        }
+
+
+
     }
 }

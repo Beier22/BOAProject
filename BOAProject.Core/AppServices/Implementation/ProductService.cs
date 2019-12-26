@@ -24,8 +24,6 @@ namespace BOAProject.Core.AppServices.Implementation
                 throw new Exception("Description of the product is required.");
             else if (string.IsNullOrEmpty(product.Type))
                 throw new Exception("Type of the product is required.");
-            else if (product.AvailableQuantity < 0)
-                throw new Exception("Quantity of the product is wrong.");
             else if (product.Price <= 0)
                 throw new Exception("Price of the product is wrong.");
             else if (product.DiscountPrice < 0)
@@ -44,10 +42,7 @@ namespace BOAProject.Core.AppServices.Implementation
 
         public IEnumerable<Product> ReadProducts(Filter filter)
         {
-            if (filter.ItemsPrPage < 1 || filter.CurrentPage < 1)
-                return _productRepo.GetProducts();
-            else
-                return _productRepo.GetProductsFiltered(filter);
+            return _productRepo.GetProductsFiltered(filter);
         }
 
         public bool RemoveProduct(int id)
@@ -66,8 +61,6 @@ namespace BOAProject.Core.AppServices.Implementation
                 throw new Exception("Description of the product is required.");
             else if (string.IsNullOrEmpty(product.Type))
                 throw new Exception("Type of the product is required.");
-            else if (product.AvailableQuantity < 0)
-                throw new Exception("Quantity of the product is wrong.");
             else if (product.Price <= 0)
                 throw new Exception("Price of the product is wrong.");
             else if (product.DiscountPrice < 0)

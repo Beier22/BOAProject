@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BOAProject.Core.AppServices;
 using BOAProject.Core.DomainServices.Filtering;
 using BOAProject.Core.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,7 +40,7 @@ namespace BOAProject.Controllers
 
         }
     
-
+        
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<Product> Get(int id)
@@ -58,9 +59,12 @@ namespace BOAProject.Controllers
                 return BadRequest(exception.Message);
             }
             
-            }
+        }
+
+
 
         // POST api/values
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult<Product> Post([FromBody] Product product)
         {
@@ -72,8 +76,6 @@ namespace BOAProject.Controllers
                     return BadRequest("Description of the product is required.");
                 else if (string.IsNullOrEmpty(product.Type))
                     return BadRequest("Type of the product is required.");
-                else if (product.AvailableQuantity < 0)
-                    return BadRequest("Quantity of the product is wrong.");
                 else if (product.Price <= 0)
                     return BadRequest("Price of the product is wrong.");
                 else if (product.DiscountPrice < 0)
@@ -92,6 +94,7 @@ namespace BOAProject.Controllers
         }
 
         // PUT api/values/5
+        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public ActionResult<Product> Put(int id, [FromBody] Product product)
         {
@@ -107,8 +110,6 @@ namespace BOAProject.Controllers
                     return BadRequest("Description of the product is required.");
                 else if (string.IsNullOrEmpty(product.Type))
                     return BadRequest("Type of the product is required.");
-                else if (product.AvailableQuantity < 0)
-                    return BadRequest("Quantity of the product is wrong.");
                 else if (product.Price <= 0)
                     return BadRequest("Price of the product is wrong.");
                 else if (product.DiscountPrice < 0)
@@ -129,6 +130,7 @@ namespace BOAProject.Controllers
         }
 
         // DELETE api/values/5
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("{id}")]
         public ActionResult<Product> Delete(int id)
         {

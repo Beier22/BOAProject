@@ -12,10 +12,15 @@ namespace BOAProject.Infrastructure
         {}
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<ProductQuantity> ProductsQuantities { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Collection> Collections { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<SizeQuantity> SizeQuantities { get; set; }
+
+        public DbSet<Picture> Pictures { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //USER TABLE
@@ -44,17 +49,27 @@ namespace BOAProject.Infrastructure
 
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.Address);
+
+            modelBuilder.Entity<Order>()
+                .HasMany(o => o.ProductQuantity);
+
             //ORDER TABLE
+
+            //PRODUCTQuantity TABLE
+            modelBuilder.Entity<ProductQuantity>()
+                .HasOne(p => p.Product);
+            //PRODUCTQuantity TABLE
 
             //PRODUCT TABLE
             modelBuilder.Entity<Product>()
-                .HasOne(p => p.Order)
-                .WithMany(o => o.Products)
-                .OnDelete(DeleteBehavior.SetNull);
-
-            modelBuilder.Entity<Product>()
                 .HasOne(p => p.Collection)
                 .WithMany(c => c.Products);
+
+            modelBuilder.Entity<Product>()
+                .HasKey(p => p.ID);
+
+            
+
             //PRODUCT TABLE
 
             //Collection TABLE
@@ -70,6 +85,12 @@ namespace BOAProject.Infrastructure
                 .WithOne(u => u.Address)
                 .OnDelete(DeleteBehavior.SetNull);
             //Address TABLE
+
+
+            //SizeQuantity Table//
+           // modelBuilder.Entity<SizeQuantity>()
+             
+            //SizeQuantity Table//
         }
 
 

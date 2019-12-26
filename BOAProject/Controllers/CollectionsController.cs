@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BOAProject.Core.AppServices;
 using BOAProject.Core.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BOAProject.Controllers
@@ -59,6 +60,7 @@ namespace BOAProject.Controllers
         }
 
         // POST api/values
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult<Collection> Post([FromBody] Collection collection)
         {
@@ -79,6 +81,7 @@ namespace BOAProject.Controllers
         }
 
         // PUT api/values/5
+        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public ActionResult<Collection> Put(int id, [FromBody] Collection collection)
         {
@@ -103,6 +106,7 @@ namespace BOAProject.Controllers
         }
 
         // DELETE api/values/5
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("{id}")]
         public ActionResult<Collection> Delete(int id)
         {

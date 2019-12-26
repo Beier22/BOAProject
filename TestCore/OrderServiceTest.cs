@@ -22,7 +22,7 @@ namespace TestCore
 
             var order = new Order()
             {
-                Products = new List<Product>(),
+                ProductQuantity = new List<ProductQuantity>(),
                 Total = 500.9,
                 User = new User() { }, 
             };
@@ -66,7 +66,7 @@ namespace TestCore
             var order = new Order()
             {
                 Address = new Address(),
-                Products = new List<Product>() { new Product() },
+                ProductQuantity = new List<ProductQuantity>() { new ProductQuantity() },
                 Total = 500.9,
             };
             Exception ex = Assert.Throws<Exception>(() =>

@@ -15,16 +15,14 @@ namespace BOAProject.Core.AppServices.Implementation
             _userRepo = userRepo;
         }
 
-        public User AddUser(User user)
+        public User AddUser(LoginInputModel input)
         {
-            if (string.IsNullOrEmpty(user.Email))
+            if (string.IsNullOrEmpty(input.Email))
                 throw new Exception("E-mail is required.");
-            else if (user.PasswordHash == null)
+            else if (string.IsNullOrEmpty(input.Password))
                 throw new Exception("Password is required.");
-            else if (user.PasswordSalt == null)
-                throw new Exception("Salt is required.");
             else
-                return _userRepo.CreateUser(user);
+                return _userRepo.CreateUser(input);
         }
 
         public User ReadUserByID(int id)

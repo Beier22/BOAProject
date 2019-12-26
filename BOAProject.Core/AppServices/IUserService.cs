@@ -9,7 +9,7 @@ namespace BOAProject.Core.AppServices
     {
         IEnumerable<User> ReadUsers();
         User ReadUserByID(int id);
-        User AddUser(User user);
+        User AddUser(LoginInputModel input);
         User ReviseUser(User user);
         bool RemoveUser(int id);
     }

@@ -39,7 +39,8 @@ namespace BOAProject.Controllers
             // Authentication successful
             return Ok(new
             {
-                username = user.Email,
+                id = user.ID,
+                email = user.Email,
                 token = authenticationHelper.GenerateToken(user),
                 isAdmin = user.IsAdmin
 
