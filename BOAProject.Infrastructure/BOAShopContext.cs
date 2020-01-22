@@ -9,7 +9,7 @@ namespace BOAProject.Infrastructure
     public class BOAShopContext : DbContext
     {
         public BOAShopContext(DbContextOptions<BOAShopContext> opt) : base(opt)
-        {}
+        {} // we can decide what db we wanna work with
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
 
@@ -66,6 +66,11 @@ namespace BOAProject.Infrastructure
                 .WithMany(c => c.Products);
 
             modelBuilder.Entity<Product>()
+                .HasMany(p => p.SizeQuantity)
+                .WithOne(sq => sq.Product);
+
+
+            modelBuilder.Entity<Product>()
                 .HasKey(p => p.ID);
 
             
@@ -88,7 +93,9 @@ namespace BOAProject.Infrastructure
 
 
             //SizeQuantity Table//
-           // modelBuilder.Entity<SizeQuantity>()
+            modelBuilder.Entity<SizeQuantity>()
+                .HasOne(sq => sq.Product)
+                .WithMany(sq => sq.SizeQuantity);
              
             //SizeQuantity Table//
         }

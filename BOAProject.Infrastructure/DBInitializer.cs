@@ -39,18 +39,11 @@ namespace BOAProject.Infrastructure
                 Name = "Half In Half"
             }).Entity;
 
-            var sizes = new List<SizeQuantity>() {
-            new SizeQuantity(Size.L,10),
-            new SizeQuantity(Size.M,160),
-            new SizeQuantity(Size.S,490),
-            new SizeQuantity(Size.XL,240),
-            new SizeQuantity(Size.XXL,10)
-            };
 
             var p = ctx.Products.Add(new Product()
             {
                 Name = "Constrictor T-Shirt",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10,10,10,10,10,10,1),
                 Type = "T-Shirts",
                 Collection = The6ixCollection,
                 Price = 59.99,
@@ -73,7 +66,7 @@ namespace BOAProject.Infrastructure
             var p2 = ctx.Products.Add(new Product()
             {
                 Name = "Constrictor Crop Top",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10,1),
                 Type = "Tops",
                 Collection = The6ixCollection,
                 Price = 54.99,
@@ -93,7 +86,7 @@ namespace BOAProject.Infrastructure
             var p3 = ctx.Products.Add(new Product()
             {
                 Name = "Men's Sweatshirt",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10,2),
                 Type = "Hoodies And Sweatshirts",
                 Collection = TheRoseCollection,
                 Price = 299,
@@ -116,7 +109,7 @@ namespace BOAProject.Infrastructure
             var p4 = ctx.Products.Add(new Product()
             {
                 Name = "Packable Jacket",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 5),
                 Type = "no type",
                 Collection = BOAChampion,
                 Price = 109.99,
@@ -142,7 +135,7 @@ namespace BOAProject.Infrastructure
             var p5 = ctx.Products.Add(new Product()
             {
                 Name = "White Snake Slit Fitted Mini Skirt",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 6),
                 Type = "Dresses And Skirts",
                 Collection = null,
                 Price = 59.99,
@@ -161,7 +154,7 @@ namespace BOAProject.Infrastructure
             var p6 = ctx.Products.Add(new Product()
             {
                 Name = "Crop Tee",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 0),
                 Type = "Tops",
                 Collection = HalfInHalf,
                 Price = 59.99,
@@ -179,7 +172,7 @@ namespace BOAProject.Infrastructure
             var p7 = ctx.Products.Add(new Product()
             {
                 Name = "Unisex Black BOA T-Shirt",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(0, 10, 105, 10, 10, 10, 0),
                 Type = "T-Shirts",
                 Collection = null,
                 Price = 59.99,
@@ -199,7 +192,7 @@ namespace BOAProject.Infrastructure
             var p8 = ctx.Products.Add(new Product()
             {
                 Name = "Unisex White BOA T-Shirt",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(1, 1, 1, 16, 10, 10, 8),
                 Type = "T-Shirts",
                 Collection = null,
                 Price = 59.99,
@@ -218,7 +211,7 @@ namespace BOAProject.Infrastructure
             var p9 = ctx.Products.Add(new Product()
             {
                 Name = "Crop Tee",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 40, 5, 7, 0, 9, 1),
                 Type = "Tops",
                 Collection = null,
                 Price = 54.99,
@@ -236,7 +229,7 @@ namespace BOAProject.Infrastructure
             var p10 = ctx.Products.Add(new Product()
             {
                 Name = "Baseball T-Shirt",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(0, 0, 0, 10, 0, 10, 4),
                 Type = "T-Shirts",
                 Collection = null,
                 Price = 59.99,
@@ -253,7 +246,7 @@ namespace BOAProject.Infrastructure
             var p11 = ctx.Products.Add(new Product()
             {
                 Name = "Ringer T-Shirt (Unisex)",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(1, 1, 1, 1, 1, 1, 5),
                 Type = "T-Shrits",
                 Collection = The6ixCollection,
                 Price = 59.99,
@@ -270,7 +263,7 @@ namespace BOAProject.Infrastructure
             var p12 = ctx.Products.Add(new Product()
             {
                 Name = "Women's BOA Rose Crop Tee",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(0, 10, 100, 100, 10, 100, 4),
                 Type = "Tops",
                 Collection = TheRoseCollection,
                 Price = 59.99,
@@ -290,7 +283,7 @@ namespace BOAProject.Infrastructure
             var p13 = ctx.Products.Add(new Product()
             {
                 Name = "Black Men's OG Lightweight BOA Hoodie",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 0),
                 Type = "Hoodies And Sweatshirts",
                 Collection = null,
                 Price = 94.99,
@@ -308,7 +301,7 @@ namespace BOAProject.Infrastructure
             var p14 = ctx.Products.Add(new Product()
             {
                 Name = "Navy Men's OG Lightweight BOA Hoodie",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 3),
                 Type = "Hoodies And Sweatshirts",
                 Collection = null,
                 Price = 94.99,
@@ -326,7 +319,7 @@ namespace BOAProject.Infrastructure
             var p15 = ctx.Products.Add(new Product()
             {
                 Name = "Charcoal Men's OG Lightweight BOA Hoodie",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 0),
                 Type = "Hoodies And Sweatshirts",
                 Collection = null,
                 Price = 94.99,
@@ -344,7 +337,7 @@ namespace BOAProject.Infrastructure
             var p16 = ctx.Products.Add(new Product()
             {
                 Name = "Garnet Men's OG Lightweight BOA Hoodie",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 4),
                 Type = "Hoodies And Sweatshirts",
                 Collection = null,
                 Price = 94.99,
@@ -362,7 +355,7 @@ namespace BOAProject.Infrastructure
             var p17 = ctx.Products.Add(new Product()
             {
                 Name = "Men's Sweatshirt",
-                SizeQuantity = sizes,
+                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 4),
                 Type = "Hoodies And Sweatshirts",
                 Collection = HalfInHalf,
                 Price = 74.99,
@@ -423,6 +416,20 @@ namespace BOAProject.Infrastructure
 
             
             ctx.SaveChanges();
+        }
+
+        public List<SizeQuantity> defineSizes(int XS, int S , int M, int L,  int XL, int XXL , int XXXL)
+        {
+            return new List<SizeQuantity>()
+            {
+              new SizeQuantity(Size.XS,XS),
+              new SizeQuantity(Size.S,S),
+              new SizeQuantity(Size.M,M),
+              new SizeQuantity(Size.L,L),
+              new SizeQuantity(Size.XL,XL),
+              new SizeQuantity(Size.XXL,XXL),
+              new SizeQuantity(Size.XXXL,XXXL),
+            };
         }
     }
 }

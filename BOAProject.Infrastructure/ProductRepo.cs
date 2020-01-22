@@ -34,7 +34,7 @@ namespace BOAProject.Infrastructure
 
         public Product GetProductByID(int id)
         {
-            return _context.Products.Include(p => p.Pictures).Include(p => p.Collection).FirstOrDefault(c => c.ID == id);
+            return _context.Products.Include(p => p.Pictures).Include(p => p.Collection).Include(p => p.SizeQuantity).FirstOrDefault(c => c.ID == id);
         }
 
         public IEnumerable<Product> GetProducts()

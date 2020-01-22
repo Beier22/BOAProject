@@ -4,10 +4,7 @@ using System.Text;
 
 namespace BOAProject.Core.Entity
 {
-    public enum Size
-    {
-        XS, S, M, L, XL, XXL
-    }
+    
 
     public class Product
     {
