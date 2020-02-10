@@ -54,10 +54,10 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures =  new List<Picture>() {
-                     new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-10285377_720x.png?v=1570240884"},
-                     new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-e129077d_720x.png?v=1570240884"},
-                     new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-2ade0e5d_720x.png?v=1570240884"},
-                     new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-7e5f3a3f_590x.png?v=1570240884"},
+                     new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85071053_1620447228079522_2005585513452404736_n.png?_nc_cat=106&_nc_ohc=Ii9rZrA9E8UAX_wDlmm&_nc_ht=scontent.fzgh1-1.fna&oh=a8554a1a09ef848f31d48c36ec03ae35&oe=5ED281A0"},
+                     new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84415209_190626818963887_3852348625266933760_n.png?_nc_cat=106&_nc_ohc=V27_-d4_shcAX9Vhijz&_nc_ht=scontent.fzgh1-1.fna&oh=f6031ff40d20be4dd438e257d730c38f&oe=5ED29A9F"},
+                     new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84569812_569488843780582_4766417450830921728_n.png?_nc_cat=106&_nc_ohc=xfLhHcjbu-8AX9C-DQP&_nc_ht=scontent.fzgh1-1.fna&oh=9944f7c957b9d3225dd7e6eaa8f0a44e&oe=5EB5945F"},
+                     new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85058225_768672516973483_5435794426104381440_n.png?_nc_cat=107&_nc_ohc=he5F3Eowo28AX8pGf4c&_nc_ht=scontent.fzgh1-1.fna&oh=b3c2ac66280e71d318c371db44d05dad&oe=5EB6B3EC"},
                    
                     
                    
@@ -77,8 +77,8 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-0b38880d_720x.png?v=1570240883"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-4e64433f_590x.png?v=1570240883"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84717172_1046498499063324_2931976037547900928_n.png?_nc_cat=110&_nc_ohc=jf1HP8Y_lHcAX8O2R41&_nc_ht=scontent.fzgh1-1.fna&oh=537a3b5b1fbc5e8e0aa65ed54b137e4a&oe=5ED76ED5"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85077497_803064943544268_6293257287809105920_n.png?_nc_cat=109&_nc_ohc=WYZizU05qocAX8o25IR&_nc_ht=scontent.fzgh1-1.fna&oh=92dc973f06a17096432fc21811fc0994&oe=5EB9AB78"}
                     
                 }
 
@@ -97,10 +97,10 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-2fb0b308_720x.jpg?v=1572523333"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-9dbde078_720x.jpg?v=1572523333"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-48d47526_720x.jpg?v=1572523329"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-c66ab291_590x.jpg?v=1572523333"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85090375_218347195870529_6827110006031122432_n.png?_nc_cat=109&_nc_ohc=kIDV97HbTeAAX_lDlUN&_nc_ht=scontent.fzgh1-1.fna&oh=a8ce133236eea7ee2d4fb32bbf2514e8&oe=5EC5BFA7"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84584392_3224876687540673_2397101434937016320_n.png?_nc_cat=100&_nc_ohc=B3mcLPZs2gEAX-LxaCi&_nc_ht=scontent.fzgh1-1.fna&oh=89e3df6a1fca1bab399ec8aa611defc4&oe=5EB707FD"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84817778_619238498863719_729875059971194880_n.png?_nc_cat=106&_nc_ohc=KhbpIw7IarEAX-Inv9y&_nc_ht=scontent.fzgh1-1.fna&oh=1dcc5c398ef407c0a3e799aeedbeaacf&oe=5ED79496"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85183440_2891982967489701_4863323831562928128_n.png?_nc_cat=103&_nc_ohc=BthLSmQY3PoAX-XSY1t&_nc_ht=scontent.fzgh1-1.fna&oh=65ce42c4d9183cd3a0963b7b7242da52&oe=5EBA8C0E"}
                     
                    
                     
@@ -120,11 +120,11 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-f4f4479d_720x.png?v=1574766123"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-905697b7_720x.png?v=1574766121"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-cc269368_720x.png?v=1574766119"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-a9605740_720x.png?v=1574766118"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-d68a14aa_590x.png?v=1574766115"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85068376_1532136173604085_2685777448305426432_n.png?_nc_cat=105&_nc_ohc=6AwGGWCwchwAX_BCVEZ&_nc_ht=scontent.fzgh1-1.fna&oh=9027bd13a557223b22bf02073658163a&oe=5ECB7AD4"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84596196_138486450625194_2747144662585180160_n.png?_nc_cat=104&_nc_ohc=PuBinsXCNDAAX-AhJeA&_nc_ht=scontent.fzgh1-1.fna&oh=2a533c97b6a6cdbde86f0edc5a861a07&oe=5ED43421"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84661099_124349688914718_8479237255964131328_n.png?_nc_cat=103&_nc_ohc=8IWZ-nvATzAAX_7SEYg&_nc_ht=scontent.fzgh1-1.fna&oh=3c9bb3889e96f4e5d35f166304e21645&oe=5EB8549B"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85085728_632281924262059_9011626507029708800_n.png?_nc_cat=110&_nc_ohc=nKDo44ZguHEAX8awFXm&_nc_ht=scontent.fzgh1-1.fna&oh=80b251d2aea9a1f2b9f1a4feeeb2f2c1&oe=5ED3B57A"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84491697_1041893282857688_1159206416150429696_n.png?_nc_cat=106&_nc_ohc=38SJH7kDbVsAX_R998e&_nc_ht=scontent.fzgh1-1.fna&oh=ad0c6adec86d2e661a6bd729d199a94c&oe=5ECE6D06"}
                     
                     
                     
@@ -146,8 +146,8 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-592f2ec9_590x.jpg?v=1570240845"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-6efba442_720x.jpg?v=1570240845"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85230647_259555445012649_2544518018344419328_n.png?_nc_cat=108&_nc_ohc=7AlTZLzpbDUAX9nM3ZT&_nc_ht=scontent.fzgh1-1.fna&oh=906ad8d0a3ad29b17985080a0391aef7&oe=5ED7202D"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85002466_492738878105978_8471512229001297920_n.png?_nc_cat=105&_nc_ohc=X3KcDugOKc0AX9nrSWA&_nc_ht=scontent.fzgh1-1.fna&oh=4212ade6b8899d7701c1479586e0a007&oe=5EBD3BAB"}
 
                 }
             }).Entity;
@@ -165,7 +165,7 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-3bce8ee5_590x.png?v=1572522791"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84669745_1573810892784544_8416175303423950848_n.png?_nc_cat=102&_nc_ohc=H9IrEd04ygYAX-ONKrf&_nc_ht=scontent.fzgh1-1.fna&oh=7423c0ba059063153ab3ee368e2cb110&oe=5ED20013"}
 
                 }
             }).Entity;
@@ -183,10 +183,10 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/f86198d84a1dfa542db18a0ca8c74666_02a43c59-2dd8-44c5-88a0-5d5320975bfe_720x.jpg?v=1570240882"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/6afa822247494d4dc68db0cbc194c831_9288aabd-0315-4916-ba75-7643d0d72a08_720x.jpg?v=1570240882"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/8e48e477242ea3ea6ea934fc477ff527_d3c6ff42-27e1-44db-9803-f39cb29865cf_720x.jpg?v=1570240882"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/def750fccfcc20a8695e260b1ec937ac_06ba523d-3200-4c9a-81e6-d232febf09e6_590x.jpg?v=1570240882"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84860611_619976168766491_1769015124196065280_n.png?_nc_cat=106&_nc_ohc=LEr3nMHgtlAAX81vOfd&_nc_ht=scontent.fzgh1-1.fna&oh=ac07ecb38dc2958a4ddb5834d903f336&oe=5EC7D65F"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85112711_2383445045281066_1978800422357303296_n.png?_nc_cat=100&_nc_ohc=BZp4QXWNW6sAX_Jm7_m&_nc_ht=scontent.fzgh1-1.fna&oh=b76f864801d2568ec961d601bd86b712&oe=5EBE52B0"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85112009_295482351412494_1875157016054333440_n.png?_nc_cat=104&_nc_ohc=JRz1HxwWTJUAX-Cr5S3&_nc_ht=scontent.fzgh1-1.fna&oh=2ef83456f1b4339e2e227c20f21a955c&oe=5EBF163E"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85087530_497855001133878_3530306316645957632_n.png?_nc_cat=103&_nc_ohc=aEFYBQ4IdmEAX8A-nCg&_nc_ht=scontent.fzgh1-1.fna&oh=03640310dbe0695f4c229bfd1747c60b&oe=5ED689CF"}
                 }
             }).Entity;
             var p8 = ctx.Products.Add(new Product()
@@ -203,8 +203,7 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                     new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/f27458cf19a5e23a80afe358c911b867_af46f5b8-cebb-4120-8eea-69e1ffe19b2a_720x.jpg?v=1570240882"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/f27458cf19a5e23a80afe358c911b867_af46f5b8-cebb-4120-8eea-69e1ffe19b2a_720x.jpg?v=1570240882"}
+                     new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84947044_1629464167191857_8814984040722464768_n.png?_nc_cat=107&_nc_ohc=v0F3ufWFc4wAX_atyFb&_nc_ht=scontent.fzgh1-1.fna&oh=c28adc9ffeebfefede99e032dc833a4c&oe=5EC10D6D"}
                    
                 }
             }).Entity;
@@ -222,8 +221,8 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-a3766a19_720x.png?v=1570240881"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-df88789f_590x.png?v=1570240881"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84727561_624183371710786_5575213724572057600_n.png?_nc_cat=111&_nc_ohc=MBVCOjSVHGIAX_UqFwm&_nc_ht=scontent.fzgh1-1.fna&oh=1b09cd545ff972d2b75a777271db9220&oe=5ECC3240"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85095813_586742282174964_3708313121719320576_n.png?_nc_cat=105&_nc_ohc=poBAT9TESNMAX9AQGMv&_nc_ht=scontent.fzgh1-1.fna&oh=97d5c8621725b12b0fa001b5463c6bca&oe=5ECA5C14"}
                 }
             }).Entity;
             var p10 = ctx.Products.Add(new Product()
@@ -240,7 +239,7 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-b11ec8ee_590x.jpg?v=1570240871"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84954506_327926675114507_7536199919665676288_n.png?_nc_cat=110&_nc_ohc=d1_lk4pXrYMAX_ALNMS&_nc_ht=scontent.fzgh1-1.fna&oh=7964c828326ed5e9f52453e24993ad47&oe=5EC882F2"}
                 }
             }).Entity;
             var p11 = ctx.Products.Add(new Product()
@@ -257,7 +256,7 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-75e70111_590x.png?v=1570240879"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85042234_905529826533166_2190991189967110144_n.png?_nc_cat=104&_nc_ohc=X7IlW8aoyGIAX_vEiED&_nc_ht=scontent.fzgh1-1.fna&oh=bc71892f70bdc516a73842221f6347a4&oe=5EB5056B"}
                 }
             }).Entity;
             var p12 = ctx.Products.Add(new Product()
@@ -274,84 +273,16 @@ namespace BOAProject.Infrastructure
                 "omnis dolor repellendus" +
           "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-91a9de83_720x.png?v=1570240865"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-f1a84ce9_720x.png?v=1570240865"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-01d087cb_720x.png?v=1570240865"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-d881b9a6_590x.png?v=1570240865"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84923162_178508176756758_996715352232558592_n.png?_nc_cat=111&_nc_ohc=D3FEqxR-nKoAX_JcCut&_nc_ht=scontent.fzgh1-1.fna&oh=0337e05b63a30596fe1983eccbf46142&oe=5EB90B91"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84491994_118920959537962_3031848333715963904_n.png?_nc_cat=108&_nc_ohc=eT9_KjZy_YwAX--O8Ju&_nc_ht=scontent.fzgh1-1.fna&oh=68f6cfa8092f89b6367324a6ce62d71b&oe=5ECBBE78"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84631007_206133303901347_8633030590200807424_n.png?_nc_cat=106&_nc_ohc=l_ZRa3zDbrIAX-ENfzM&_nc_ht=scontent.fzgh1-1.fna&oh=6a4dad94055b7c37c64968d691dff6c7&oe=5ECD51DF"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85165297_192034088839592_3223246086609043456_n.png?_nc_cat=100&_nc_ohc=GoMd3r1ZM1cAX9R9Nym&_nc_ht=scontent.fzgh1-1.fna&oh=2755ff5cdf89719a29dd8697908f1f2c&oe=5F013874"}
                 }
             }).Entity;
-            var p13 = ctx.Products.Add(new Product()
-            {
-                Name = "Black Men's OG Lightweight BOA Hoodie",
-                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 0),
-                Type = "Hoodies And Sweatshirts",
-                Collection = null,
-                Price = 94.99,
-                Gender = "Men",
-                Description = "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit" +
-          "quo minus id quod maxime placeat facere possimus," +
-                "omnis voluptas assumenda est," +
-                "omnis dolor repellendus" +
-          "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
-                Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/7af88916046d347a742621d24cff4685_fd35f3f9-b21e-46f3-8869-28d9848750d2_720x.jpg?v=1570240851"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/a4059ab4d21ca23f715c93e49ba5e0e4_0e1d1860-50e2-426b-abeb-f31f57274fa2_590x.jpg?v=1570240851"}
-                }
-            }).Entity;
-            var p14 = ctx.Products.Add(new Product()
-            {
-                Name = "Navy Men's OG Lightweight BOA Hoodie",
-                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 3),
-                Type = "Hoodies And Sweatshirts",
-                Collection = null,
-                Price = 94.99,
-                Gender = "Men",
-                Description = "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit" +
-          "quo minus id quod maxime placeat facere possimus," +
-                "omnis voluptas assumenda est," +
-                "omnis dolor repellendus" +
-          "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
-                Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/eac7ef5739afa7247b7739fada0499db_720x.jpg?v=1570240852"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/c827500003c6a8b416ce77defb32568d_7b79f147-7b33-4501-b20d-8b5926e9f99b_590x.jpg?v=1570240852"}
-                }
-            }).Entity;
-            var p15 = ctx.Products.Add(new Product()
-            {
-                Name = "Charcoal Men's OG Lightweight BOA Hoodie",
-                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 0),
-                Type = "Hoodies And Sweatshirts",
-                Collection = null,
-                Price = 94.99,
-                Gender = "Men",
-                Description = "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit" +
-          "quo minus id quod maxime placeat facere possimus," +
-                "omnis voluptas assumenda est," +
-                "omnis dolor repellendus" +
-          "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
-                Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/441656a772af5488e0735d1cc544cd5c_34f103b1-c583-44d3-95af-16ffcdbf50f4_720x.jpg?v=1570240854"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/4d33a64507f875eb4788798f68e2d414_e14ca839-dd32-420b-8921-f457f840d8d4_590x.jpg?v=1570240854"}
-                }
-            }).Entity;
-            var p16 = ctx.Products.Add(new Product()
-            {
-                Name = "Garnet Men's OG Lightweight BOA Hoodie",
-                SizeQuantity = defineSizes(10, 10, 10, 10, 10, 10, 4),
-                Type = "Hoodies And Sweatshirts",
-                Collection = null,
-                Price = 94.99,
-                Gender = "Men",
-                Description = "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit"+
-          "quo minus id quod maxime placeat facere possimus,"+
-                "omnis voluptas assumenda est,"+
-                "omnis dolor repellendus"+
-          "et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.",
-                Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/fb610721be261c5f7107d12d0d8863f8_0f6428b0-103f-4bff-8d3c-49af741e884e_720x.jpg?v=1570240853"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/a5c57b0fe56385efd940b41c5c939259_8434bb5a-2fce-45e7-b554-9102bc2f44e7_590x.jpg?v=1570240853"}
-                }
-            }).Entity;
+            
+          
+          
+           
             var p17 = ctx.Products.Add(new Product()
             {
                 Name = "Men's Sweatshirt",
@@ -362,10 +293,9 @@ namespace BOAProject.Infrastructure
                 Gender = "Men",
                 Description = "to be later edited",
                 Pictures = new List<Picture>() {
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-2fb0b308_720x.jpg?v=1572523333"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-9dbde078_720x.jpg?v=1572523333"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-48d47526_720x.jpg?v=1572523329"},
-                    new Picture() { PictureLink = "https://cdn.shopify.com/s/files/1/2468/9609/products/mockup-c66ab291_590x.jpg?v=1572523333"}
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85090375_218347195870529_6827110006031122432_n.png?_nc_cat=109&_nc_ohc=kIDV97HbTeAAX_lDlUN&_nc_ht=scontent.fzgh1-1.fna&oh=a8ce133236eea7ee2d4fb32bbf2514e8&oe=5EC5BFA7"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/84817778_619238498863719_729875059971194880_n.png?_nc_cat=106&_nc_ohc=KhbpIw7IarEAX-Inv9y&_nc_ht=scontent.fzgh1-1.fna&oh=1dcc5c398ef407c0a3e799aeedbeaacf&oe=5ED79496"},
+                    new Picture() { PictureLink = "https://scontent.fzgh1-1.fna.fbcdn.net/v/t1.15752-9/85183440_2891982967489701_4863323831562928128_n.png?_nc_cat=103&_nc_ohc=BthLSmQY3PoAX-XSY1t&_nc_ht=scontent.fzgh1-1.fna&oh=65ce42c4d9183cd3a0963b7b7242da52&oe=5EBA8C0E"}
                 }
             }).Entity;
             string password = "1234";
